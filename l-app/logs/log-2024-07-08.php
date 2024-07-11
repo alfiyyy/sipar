@@ -1,0 +1,51 @@
+<?php defined('BASEPATH') OR exit('No direct script access allowed'); ?>
+
+ERROR - 2024-07-08 09:41:33 --> Severity: error --> Exception: Too few arguments to function getCategoryIcon(), 0 passed in C:\xampp7\htdocs\sipar\l-app\views\themes\sovi\home.php on line 181 and exactly 1 expected C:\xampp7\htdocs\sipar\l-app\views\themes\sovi\home.php 4
+ERROR - 2024-07-08 09:45:21 --> Severity: Notice --> Undefined index: kategti_nama C:\xampp7\htdocs\sipar\l-app\views\themes\sovi\home.php 180
+ERROR - 2024-07-08 09:45:21 --> Severity: Notice --> Undefined index: kategti_nama C:\xampp7\htdocs\sipar\l-app\views\themes\sovi\home.php 180
+ERROR - 2024-07-08 09:45:21 --> Severity: Notice --> Undefined index: kategti_nama C:\xampp7\htdocs\sipar\l-app\views\themes\sovi\home.php 180
+ERROR - 2024-07-08 09:45:21 --> Severity: Notice --> Undefined index: kategti_nama C:\xampp7\htdocs\sipar\l-app\views\themes\sovi\home.php 180
+ERROR - 2024-07-08 09:45:21 --> Severity: Notice --> Undefined index: kategti_nama C:\xampp7\htdocs\sipar\l-app\views\themes\sovi\home.php 180
+ERROR - 2024-07-08 09:45:21 --> Severity: Notice --> Undefined index: kategti_nama C:\xampp7\htdocs\sipar\l-app\views\themes\sovi\home.php 180
+ERROR - 2024-07-08 09:45:21 --> Severity: Notice --> Undefined index: kategti_nama C:\xampp7\htdocs\sipar\l-app\views\themes\sovi\home.php 180
+ERROR - 2024-07-08 09:45:21 --> Severity: Notice --> Undefined index: kategti_nama C:\xampp7\htdocs\sipar\l-app\views\themes\sovi\home.php 180
+ERROR - 2024-07-08 09:45:21 --> Severity: Notice --> Undefined index: kategti_nama C:\xampp7\htdocs\sipar\l-app\views\themes\sovi\home.php 180
+ERROR - 2024-07-08 09:45:21 --> Severity: Notice --> Undefined index: kategti_nama C:\xampp7\htdocs\sipar\l-app\views\themes\sovi\home.php 180
+ERROR - 2024-07-08 09:45:21 --> Severity: Notice --> Undefined index: kategti_nama C:\xampp7\htdocs\sipar\l-app\views\themes\sovi\home.php 180
+ERROR - 2024-07-08 09:45:21 --> Severity: Notice --> Undefined index: kategti_nama C:\xampp7\htdocs\sipar\l-app\views\themes\sovi\home.php 180
+ERROR - 2024-07-08 09:45:21 --> Severity: Notice --> Undefined index: kategti_nama C:\xampp7\htdocs\sipar\l-app\views\themes\sovi\home.php 180
+ERROR - 2024-07-08 09:45:21 --> Severity: Notice --> Undefined index: kategti_nama C:\xampp7\htdocs\sipar\l-app\views\themes\sovi\home.php 180
+ERROR - 2024-07-08 09:45:21 --> Severity: Notice --> Undefined index: kategti_nama C:\xampp7\htdocs\sipar\l-app\views\themes\sovi\home.php 180
+ERROR - 2024-07-08 09:45:21 --> Severity: Notice --> Undefined index: kategti_nama C:\xampp7\htdocs\sipar\l-app\views\themes\sovi\home.php 180
+ERROR - 2024-07-08 09:45:21 --> Severity: Notice --> Undefined index: kategti_nama C:\xampp7\htdocs\sipar\l-app\views\themes\sovi\home.php 180
+ERROR - 2024-07-08 09:45:21 --> Severity: Notice --> Undefined index: kategti_nama C:\xampp7\htdocs\sipar\l-app\views\themes\sovi\home.php 180
+ERROR - 2024-07-08 09:45:21 --> Severity: Notice --> Undefined index: kategti_nama C:\xampp7\htdocs\sipar\l-app\views\themes\sovi\home.php 180
+ERROR - 2024-07-08 09:45:21 --> Severity: Notice --> Undefined index: kategti_nama C:\xampp7\htdocs\sipar\l-app\views\themes\sovi\home.php 180
+ERROR - 2024-07-08 09:45:21 --> Severity: Notice --> Undefined index: kategti_nama C:\xampp7\htdocs\sipar\l-app\views\themes\sovi\home.php 180
+ERROR - 2024-07-08 09:45:21 --> Severity: Notice --> Undefined index: kategti_nama C:\xampp7\htdocs\sipar\l-app\views\themes\sovi\home.php 180
+ERROR - 2024-07-08 09:45:21 --> Severity: Notice --> Undefined index: kategti_nama C:\xampp7\htdocs\sipar\l-app\views\themes\sovi\home.php 180
+ERROR - 2024-07-08 09:45:21 --> Severity: Notice --> Undefined index: kategti_nama C:\xampp7\htdocs\sipar\l-app\views\themes\sovi\home.php 180
+ERROR - 2024-07-08 09:45:21 --> Severity: Notice --> Undefined index: kategti_nama C:\xampp7\htdocs\sipar\l-app\views\themes\sovi\home.php 180
+ERROR - 2024-07-08 09:45:21 --> Severity: Notice --> Undefined index: kategti_nama C:\xampp7\htdocs\sipar\l-app\views\themes\sovi\home.php 180
+ERROR - 2024-07-08 09:45:21 --> Severity: Notice --> Undefined index: kategti_nama C:\xampp7\htdocs\sipar\l-app\views\themes\sovi\home.php 180
+ERROR - 2024-07-08 09:45:21 --> Severity: Notice --> Undefined index: kategti_nama C:\xampp7\htdocs\sipar\l-app\views\themes\sovi\home.php 180
+ERROR - 2024-07-08 09:45:21 --> Severity: Notice --> Undefined index: kategti_nama C:\xampp7\htdocs\sipar\l-app\views\themes\sovi\home.php 180
+ERROR - 2024-07-08 09:45:21 --> Severity: Notice --> Undefined index: kategti_nama C:\xampp7\htdocs\sipar\l-app\views\themes\sovi\home.php 180
+ERROR - 2024-07-08 09:45:21 --> Severity: Notice --> Undefined index: kategti_nama C:\xampp7\htdocs\sipar\l-app\views\themes\sovi\home.php 180
+ERROR - 2024-07-08 10:00:00 --> Severity: Warning --> strpos(): Empty needle C:\xampp7\htdocs\sipar\l-app\views\themes\sovi\home.php 36
+ERROR - 2024-07-08 10:00:00 --> Severity: Warning --> strpos(): Empty needle C:\xampp7\htdocs\sipar\l-app\views\themes\sovi\home.php 36
+ERROR - 2024-07-08 10:00:00 --> Severity: Warning --> strpos(): Empty needle C:\xampp7\htdocs\sipar\l-app\views\themes\sovi\home.php 36
+ERROR - 2024-07-08 10:00:00 --> Severity: Warning --> strpos(): Empty needle C:\xampp7\htdocs\sipar\l-app\views\themes\sovi\home.php 36
+ERROR - 2024-07-08 10:00:00 --> Severity: Warning --> strpos(): Empty needle C:\xampp7\htdocs\sipar\l-app\views\themes\sovi\home.php 36
+ERROR - 2024-07-08 10:00:00 --> Severity: Warning --> strpos(): Empty needle C:\xampp7\htdocs\sipar\l-app\views\themes\sovi\home.php 36
+ERROR - 2024-07-08 10:00:00 --> Severity: Warning --> strpos(): Empty needle C:\xampp7\htdocs\sipar\l-app\views\themes\sovi\home.php 36
+ERROR - 2024-07-08 10:00:00 --> Severity: Warning --> strpos(): Empty needle C:\xampp7\htdocs\sipar\l-app\views\themes\sovi\home.php 36
+ERROR - 2024-07-08 10:00:00 --> Severity: Warning --> strpos(): Empty needle C:\xampp7\htdocs\sipar\l-app\views\themes\sovi\home.php 36
+ERROR - 2024-07-08 10:00:00 --> Severity: Warning --> strpos(): Empty needle C:\xampp7\htdocs\sipar\l-app\views\themes\sovi\home.php 36
+ERROR - 2024-07-08 10:00:00 --> Severity: Warning --> strpos(): Empty needle C:\xampp7\htdocs\sipar\l-app\views\themes\sovi\home.php 36
+ERROR - 2024-07-08 10:00:00 --> Severity: Warning --> strpos(): Empty needle C:\xampp7\htdocs\sipar\l-app\views\themes\sovi\home.php 36
+ERROR - 2024-07-08 10:00:00 --> Severity: Warning --> strpos(): Empty needle C:\xampp7\htdocs\sipar\l-app\views\themes\sovi\home.php 36
+ERROR - 2024-07-08 10:00:00 --> Severity: Warning --> strpos(): Empty needle C:\xampp7\htdocs\sipar\l-app\views\themes\sovi\home.php 36
+ERROR - 2024-07-08 10:00:00 --> Severity: Warning --> strpos(): Empty needle C:\xampp7\htdocs\sipar\l-app\views\themes\sovi\home.php 36
+ERROR - 2024-07-08 10:00:00 --> Severity: Warning --> strpos(): Empty needle C:\xampp7\htdocs\sipar\l-app\views\themes\sovi\home.php 36
+ERROR - 2024-07-08 05:46:58 --> 404 Page Not Found: l-admin/Index/index

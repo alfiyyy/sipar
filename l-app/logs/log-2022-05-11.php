@@ -1,0 +1,14 @@
+<?php defined('BASEPATH') OR exit('No direct script access allowed'); ?>
+
+ERROR - 2022-05-11 07:39:10 --> Severity: Notice --> Undefined index: wdeleteaccess E:\xampp\htdocs\sipar\l-app\libraries\Cifire_Role.php 62
+ERROR - 2022-05-11 08:44:43 --> Query error: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '' at line 1 - Invalid query: SELECT * FROM t_peserta WHERE peserta_nip=
+ERROR - 2022-05-11 08:44:49 --> Query error: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '' at line 1 - Invalid query: SELECT * FROM t_peserta WHERE peserta_nip=
+ERROR - 2022-05-11 08:44:57 --> Query error: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '' at line 1 - Invalid query: SELECT * FROM t_peserta WHERE peserta_nip=
+ERROR - 2022-05-11 08:45:01 --> Query error: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '' at line 1 - Invalid query: SELECT * FROM t_peserta WHERE peserta_nip=
+ERROR - 2022-05-11 08:45:20 --> Query error: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '' at line 1 - Invalid query: SELECT * FROM t_peserta WHERE peserta_nip=
+ERROR - 2022-05-11 08:45:21 --> Query error: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '' at line 1 - Invalid query: SELECT * FROM t_peserta WHERE peserta_nip=
+ERROR - 2022-05-11 08:45:22 --> Query error: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '' at line 1 - Invalid query: SELECT * FROM t_peserta WHERE peserta_nip=
+ERROR - 2022-05-11 08:45:22 --> Query error: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '' at line 1 - Invalid query: SELECT * FROM t_peserta WHERE peserta_nip=
+ERROR - 2022-05-11 08:54:35 --> Query error: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '' at line 1 - Invalid query: SELECT * FROM t_peserta WHERE peserta_nip=
+ERROR - 2022-05-11 08:54:45 --> Query error: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '' at line 1 - Invalid query: SELECT * FROM t_peserta WHERE peserta_nip=
+ERROR - 2022-05-11 09:39:33 --> Severity: Notice --> Undefined index: wdeleteaccess E:\xampp\htdocs\sipar\l-app\libraries\Cifire_Role.php 62

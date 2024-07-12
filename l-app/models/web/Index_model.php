@@ -1,7 +1,8 @@
-<?php 
-defined('BASEPATH') OR exit('No direct script access allowed');
+<?php
+defined('BASEPATH') or exit('No direct script access allowed');
 
-class Index_model extends CI_Model {
+class Index_model extends CI_Model
+{
 
 	public $vars;
 
@@ -37,25 +38,19 @@ class Index_model extends CI_Model {
 
 		$exLimit = explode(',', $limit);
 
-		if ( count($exLimit) > 1 )
-		{
+		if (count($exLimit) > 1) {
 			$query = $this->db->limit((int)$exLimit[0], (int)$exLimit[1]);
-		}
-		else
-		{
+		} else {
 			$query = $this->db->limit($limit);
 		}
 
-		if ( $order_by != 'RAND()' )
-		{
+		if ($order_by != 'RAND()') {
 			$xo = explode(',', $order_by);
 			$query = $this->db->order_by($xo[0], $xo[1]);
-		}
-		else
-		{
+		} else {
 			$query = $this->db->order_by($order_by);
 		}
-		
+
 		$query = $this->db->get('t_post');
 		$result = $query->result_array();
 
@@ -72,25 +67,19 @@ class Index_model extends CI_Model {
 
 		$exLimit = explode(',', $limit);
 
-		if ( count($exLimit) > 1 )
-		{
+		if (count($exLimit) > 1) {
 			$query = $this->db->limit((int)$exLimit[0], (int)$exLimit[1]);
-		}
-		else
-		{
+		} else {
 			$query = $this->db->limit($limit);
 		}
 
-		if ( $order_by != 'RAND()' )
-		{
+		if ($order_by != 'RAND()') {
 			$xo = explode(',', $order_by);
 			$query = $this->db->order_by($xo[0], $xo[1]);
-		}
-		else
-		{
+		} else {
 			$query = $this->db->order_by($order_by);
 		}
-		
+
 		$query = $this->db->get('t_unit_kerja');
 		$result = $query->result_array();
 
@@ -98,7 +87,7 @@ class Index_model extends CI_Model {
 	}
 
 
-	public function popular_post($interval = NULL, $limit = '5', $order_by='post_hits,DESC')
+	public function popular_post($interval = NULL, $limit = '5', $order_by = 'post_hits,DESC')
 	{
 		$query = $this->db->select('
 					 t_post.id            AS  post_id,
@@ -123,39 +112,30 @@ class Index_model extends CI_Model {
 		$query = $this->db->join('t_user', 't_user.id = t_post.id_user', 'left');
 		$query = $this->db->where('t_post.active', 'Y');
 
-		if ($interval === 'week')
-		{
+		if ($interval === 'week') {
 			$query = $this->db->where('date(t_post.datepost) > DATE_SUB(NOW(), INTERVAL 1 WEEK)', NULL, FALSE);
-		} 
+		}
 
-		if ($interval === 'month')
-		{
+		if ($interval === 'month') {
 			$query = $this->db->where('MONTH(t_post.datepost)', date('m'));
 		}
 
-		if ($interval === 'year')
-		{
+		if ($interval === 'year') {
 			$query = $this->db->where('YEAR(t_post.datepost)', date('Y'));
 		}
 
 		$exLimit = explode(',', $limit);
-		
-		if ( count($exLimit) > 1 )
-		{
+
+		if (count($exLimit) > 1) {
 			$query = $this->db->limit((int)$exLimit[0], (int)$exLimit[1]);
-		}
-		else
-		{
+		} else {
 			$query = $this->db->limit($limit);
 		}
 
-		if ( $order_by != 'RAND()' )
-		{
+		if ($order_by != 'RAND()') {
 			$xo = explode(',', $order_by);
 			$query = $this->db->order_by($xo[0], $xo[1]);
-		}
-		else
-		{
+		} else {
 			$query = $this->db->order_by($order_by);
 		}
 
@@ -191,27 +171,21 @@ class Index_model extends CI_Model {
 		$query = $this->db->join('t_user', 't_user.id = t_post.id_user', 'left');
 		$query = $this->db->where('t_post.active', 'Y');
 
-		if ( $order_by != 'RAND()' )
-		{
+		if ($order_by != 'RAND()') {
 			$xo = explode(',', $order_by);
 			$query = $this->db->order_by($xo[0], $xo[1]);
-		}
-		else
-		{
+		} else {
 			$query = $this->db->order_by($order_by);
 		}
 
 		$exLimit = explode(',', $limit);
-		
-		if ( count($exLimit) > 1 )
-		{
+
+		if (count($exLimit) > 1) {
 			$query = $this->db->limit((int)$exLimit[0], (int)$exLimit[1]);
-		}
-		else
-		{
+		} else {
 			$query = $this->db->limit($limit);
 		}
-		
+
 		$query = $this->db->get('t_post');
 		$result = $query->result_array();
 
@@ -242,8 +216,8 @@ class Index_model extends CI_Model {
 			->join('t_category', 't_category.id = t_post.id_category', 'left')
 			->join('t_user', 't_user.id = t_post.id_user', 'left')
 			->where('t_post.active', 'Y')
-			->order_by('t_post.datepost','DESC')
-			->order_by('t_post.timepost','DESC')
+			->order_by('t_post.datepost', 'DESC')
+			->order_by('t_post.timepost', 'DESC')
 			->limit($batas, $posisi)
 			->get('t_post');
 
@@ -279,14 +253,11 @@ class Index_model extends CI_Model {
 			->where('t_post.active', 'Y')
 			->where('t_post.id_category', $id_category)
 			->or_where('t_category.id_parent', $id_category)
-			->order_by('t_post.id','DESC');
+			->order_by('t_post.id', 'DESC');
 
-		if ( count($limit) == 1 )
-		{
+		if (count($limit) == 1) {
 			$query = $this->db->limit($limit[0]);
-		}
-		else 
-		{
+		} else {
 			$query = $this->db->limit($limit[0], $limit[1]);
 		}
 
@@ -301,13 +272,11 @@ class Index_model extends CI_Model {
 		$query = $this->db->order_by('id', 'DESC');
 		$query = $this->db->get('t_category');
 
-		if ( $param == 'result' )
-		{
+		if ($param == 'result') {
 			$result = $query->result_array();
 		}
-		
-		if ( $param == 'row' )
-		{
+
+		if ($param == 'row') {
 			$result = $query->row_array();
 		}
 
@@ -331,14 +300,11 @@ class Index_model extends CI_Model {
 			->join('t_unit_kerja', 't_room_kategori.unker_id=t_unit_kerja.unker_id')
 			->where('t_unit_kerja.unker_status', 'Aktif')
 			->where('t_unit_kerja.unker_id', $id_category)
-			->order_by('t_room_kategori.kategori_id','DESC');
+			->order_by('t_room_kategori.kategori_id', 'DESC');
 
-		if ( count($limit) == 1 )
-		{
+		if (count($limit) == 1) {
 			$query = $this->db->limit($limit[0]);
-		}
-		else 
-		{
+		} else {
 			$query = $this->db->limit($limit[0], $limit[1]);
 		}
 
@@ -356,7 +322,7 @@ class Index_model extends CI_Model {
                 t_room_kategori.created_at
             ')
 			->from('t_room_kategori')
-			->order_by('t_room_kategori.kategori_id','DESC');
+			->order_by('t_room_kategori.kategori_id', 'DESC');
 
 		$query = $this->db->get();
 		$result = $query->result_array();
@@ -365,19 +331,17 @@ class Index_model extends CI_Model {
 
 	public function get_unker_by($col = 'id', $val = '1', $param = 'row')
 	{
-		if ( $param == 'result' )
-		{
-            		$query = $this->db->order_by('unker_id', 'ASC');
-            		$query = $this->db->get('t_unit_kerja');
+		if ($param == 'result') {
+			$query = $this->db->order_by('unker_id', 'ASC');
+			$query = $this->db->get('t_unit_kerja');
 
 			$result = $query->result_array();
 		}
-		
-		if ( $param == 'row' )
-		{
-            		$query = $this->db->where($col, $val);
-            		$query = $this->db->order_by('unker_id', 'ASC');
-            		$query = $this->db->get('t_unit_kerja');
+
+		if ($param == 'row') {
+			$query = $this->db->where($col, $val);
+			$query = $this->db->order_by('unker_id', 'ASC');
+			$query = $this->db->get('t_unit_kerja');
 
 			$result = $query->row_array();
 		}
@@ -385,19 +349,37 @@ class Index_model extends CI_Model {
 		return $result;
 	}
 
-	public function get_comments($limit=4)
+	// fungsi tambahan untuk fitur search pada home
+	public function get_unker_by_search($searchTerm = '', $param1 = '', $param2 = 'result')
+	{
+		if (!empty($searchTerm)) {
+			$this->db->like('unker_nama', $searchTerm);
+		}
+		// Add other conditions if necessary
+		if (!empty($param1)) {
+			$this->db->where('param1', $param1);
+		}
+		if ($param2 == 'result') {
+			return $this->db->get('t_unit_kerja')->result_array();
+		} else {
+			return $this->db->get('t_unit_kerja')->row_array();
+		}
+	}
+
+
+	public function get_comments($limit = 4)
 	{
 		$query = $this->db
-			->where('active','Y')
-			->order_by('id','DESC')
+			->where('active', 'Y')
+			->order_by('id', 'DESC')
 			->get('t_comment')
 			->result_array();
 		return $query;
 	}
 
-    public function get_data_detail($id_category) 
-    {
-        $query = $this->db
+	public function get_data_detail($id_category)
+	{
+		$query = $this->db
 			->select('
                 t_room_kategori.kategori_id      	AS  kategori_id,
                 t_unit_kerja.unker_id        AS  unker_id,
@@ -413,41 +395,41 @@ class Index_model extends CI_Model {
 			->join('t_unit_kerja', 't_room_kategori.unker_id=t_unit_kerja.unker_id')
 			->where('t_unit_kerja.unker_status', 'Aktif')
 			->where('t_room_kategori.kategori_id', $id_category)
-			->order_by('t_room_kategori.kategori_id','DESC');
+			->order_by('t_room_kategori.kategori_id', 'DESC');
 
-        $query = $this->db->get();
-        return $query->row_array();
-    }
+		$query = $this->db->get();
+		return $query->row_array();
+	}
 
-    public function get_data_fasilitas($id_category)
-    {
-        $query = $this->db
-                    ->select('rf_nama, rf_icon')
-                    ->from('t_room_fasilitas')
-                    ->where('kategori_id', $id_category)
-                    ->order_by('kategori_id','DESC');
-        $query = $this->db->get();
-        return $query;
-    }
+	public function get_data_fasilitas($id_category)
+	{
+		$query = $this->db
+			->select('rf_nama, rf_icon')
+			->from('t_room_fasilitas')
+			->where('kategori_id', $id_category)
+			->order_by('kategori_id', 'DESC');
+		$query = $this->db->get();
+		return $query;
+	}
 
-    public function get_data_layanan($id_category)
-    {
-        $query = $this->db
-                    ->select('rl_nama, rl_harga')
-                    ->from('t_room_layanan')
-                    ->where('kategori_id', $id_category)
-                    ->order_by('kategori_id','DESC');
-        $query = $this->db->get();
-        return $query;
-    }
+	public function get_data_layanan($id_category)
+	{
+		$query = $this->db
+			->select('rl_nama, rl_harga')
+			->from('t_room_layanan')
+			->where('kategori_id', $id_category)
+			->order_by('kategori_id', 'DESC');
+		$query = $this->db->get();
+		return $query;
+	}
 
 	public function get_data_gambar_room($id_category)
 	{
 		$query = $this->db
-				->select('rg_image')
-				->from('t_room_gambar')
-				->where('kategori_id', $id_category)
-				->order_by('kategori_id','DESC');
+			->select('rg_image')
+			->from('t_room_gambar')
+			->where('kategori_id', $id_category)
+			->order_by('kategori_id', 'DESC');
 		$query = $this->db->get();
 		return $query;
 	}

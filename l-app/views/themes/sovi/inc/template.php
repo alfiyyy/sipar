@@ -107,13 +107,13 @@
 		.image-container {
 			width: 100%;
 			display: flex;
-			/* justify-content: center; */
 			align-items: center;
 			padding-block: 1rem;
-			/* padding-inline: 10rem; */
 			gap: 7rem;
 			overflow-x: scroll;
-			/* padding-left: 30px; */
+
+			background: rgb(2, 2, 2);
+			background: linear-gradient(90deg, rgba(2, 2, 2, 0.5327380952380952) 0%, rgba(237, 237, 237, 1) 50%, rgba(0, 0, 0, 0.4290966386554622) 100%);
 		}
 
 		@media (max-width: 767px) {
@@ -170,6 +170,10 @@
 			overflow-y: auto;
 			max-width: 300px;
 			/* Adjust the width as needed */
+		}
+
+		.navbar-shadow {
+			box-shadow: 0 4px 20px -2px black;
 		}
 	</style>
 
@@ -495,46 +499,61 @@
 			});
 		});
 
+		//menampilkan section ke paling atas (pertama) sesuai pilihan dropdown 
 		document.addEventListener('DOMContentLoaded', function() {
-    const dropdownItems = document.querySelectorAll('.dropdown-item');
-    const sections = document.querySelectorAll('.section-container');
-    const container = document.querySelector('.cat');
-    const dropdownButton = document.getElementById('dropdownMenuButton');
-    let originalOrder = Array.from(sections); // Store the original order of sections
-    let currentSection = null;
+			const dropdownItems = document.querySelectorAll('.dropdown-item');
+			const sections = document.querySelectorAll('.section-container');
+			const container = document.querySelector('.cat');
+			const dropdownButton = document.getElementById('dropdownMenuButton');
+			let originalOrder = Array.from(sections); // Store the original order of sections
+			let currentSection = null;
 
-    dropdownItems.forEach(function(item) {
-        item.addEventListener('click', function(event) {
-            event.preventDefault();
-            const targetId = this.getAttribute('href').substring(1);
-            const targetSection = document.getElementById(targetId);
+			dropdownItems.forEach(function(item) {
+				item.addEventListener('click', function(event) {
+					event.preventDefault();
+					const targetId = this.getAttribute('href').substring(1);
+					const targetSection = document.getElementById(targetId);
 
-            // Update the dropdown button text to the selected item text
-            dropdownButton.textContent = this.textContent;
+					// Update the dropdown button text to the selected item text
+					dropdownButton.textContent = this.textContent;
 
-            // Restore all sections to their original order
-            originalOrder.forEach(section => {
-                section.classList.remove('moved-section');
-                section.classList.remove('hidden');
-                section.parentElement.appendChild(section);
-            });
+					// Restore all sections to their original order
+					originalOrder.forEach(section => {
+						section.classList.remove('moved-section');
+						section.classList.remove('hidden');
+						section.parentElement.appendChild(section);
+					});
 
-            // Move the selected section below the dropdown button
-            targetSection.classList.add('hidden');
-            container.parentElement.insertBefore(targetSection, container.nextSibling);
+					// Move the selected section below the dropdown button
+					targetSection.classList.add('hidden');
+					container.parentElement.insertBefore(targetSection, container.nextSibling);
 
-            // Trigger reflow to restart the transition
-            void targetSection.offsetWidth;
+					// Trigger reflow to restart the transition
+					void targetSection.offsetWidth;
 
-            // Remove the hidden class to start the transition
-            targetSection.classList.remove('hidden');
-            targetSection.classList.add('moved-section');
-            currentSection = targetSection;
-        });
-    });
-});
+					// Remove the hidden class to start the transition
+					targetSection.classList.remove('hidden');
+					targetSection.classList.add('moved-section');
+					currentSection = targetSection;
+				});
+			});
+		});
 
+		$(document).ready(function() {
+			// Initialize sticky navbar
+			$(".navbar").sticky({
+				topSpacing: 0
+			});
 
+			// Function to add box shadow on scroll
+			$(window).scroll(function() {
+				if ($(this).scrollTop() > 0) {
+					$('.navbar').addClass('navbar-shadow');
+				} else {
+					$('.navbar').removeClass('navbar-shadow');
+				}
+			});
+		});
 	</script>
 </body>
 

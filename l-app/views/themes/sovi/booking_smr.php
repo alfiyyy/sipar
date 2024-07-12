@@ -3,7 +3,7 @@
 <!-- navigasi untuk kategori gambar -->
 <div class="container cat pt-3">
     <div class="dropdown">
-        <button style="max-width: 230px; white-space: normal;" class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <button style="max-width: 100%; white-space: normal;" class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             Select Option
         </button>
         <div class="dropdown-menu dropdown-menu-scrollable" aria-labelledby="dropdownMenuButton">

@@ -141,7 +141,7 @@ function getCategoryIcon($categoryName)
     </div>
 
     <!-- Search Form -->
-    <form method="get" action="" style="padding: 2rem;" class="input-group">
+    <form method="get" action="" style="padding: 2rem;" class="input-group" autocomplete="off">
         <input type="search" name="search" class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" value="<?= isset($_GET['search']) ? $_GET['search'] : '' ?>" />
         <button type="submit" class="btn btn-outline-primary" data-mdb-ripple-init>Search</button>
     </form>
@@ -219,7 +219,7 @@ function getCategoryIcon($categoryName)
                             <?php endif; ?>
                         <?php else : ?>
                             <div class="p-2">
-                                <div style="padding: 10px; font-weight: 700; text-align: center; background-color: #eae9e9; border-radius: 10px;">
+                                <div style="padding: 10px; font-weight: 700; text-align: center; background-color: #eae9e9; border-radius: 10px; font-family:'Montserrat'">
                                     Saat ini belum <br> menyediakan pilihan kamar
                                 </div>
                             </div>

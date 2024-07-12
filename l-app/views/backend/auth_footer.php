@@ -46,6 +46,9 @@
 			if (linkPath === currentPath) {
 				link.classList.add('active');
 			}
+			if (currentPath === linkPath+"/login") {
+				link.classList.add('active');
+			}
 		});
 	}
 

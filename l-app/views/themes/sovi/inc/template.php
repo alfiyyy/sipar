@@ -34,10 +34,15 @@
 	<link rel="stylesheet" href="<?= content_url('plugins/photoswipe/default-skin/default-skin.css'); ?>">
 	<link rel="stylesheet" href="<?= $this->CI->theme_asset('css/style.css'); ?>" />
 
-	<!-- google font -->
+	<!-- google font Montserrat -->
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+	<!-- Google Font Open Sans -->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
 
 	<!-- jquery -->
 	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -304,7 +309,7 @@
 						</div>
 						<div class="col-lg-4 mb-4 mb-lg-0">
 							<h5 style="font-family: 'Montserrat',sans-serif; font-size: 16px; text-decoration: underline;">Kontak Kami</h5>
-							<address>
+							<address style="font-family: 'Open Sans';">
 								<b style="color: whitesmoke;">Kementerian PUPR</b>
 								<br>
 								Jl. Pattimura No. 20 Kebayoran Baru Jakarta Selatan<br>

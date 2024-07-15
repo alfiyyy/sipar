@@ -27,8 +27,8 @@
 	<link rel="stylesheet" href="<?= content_url('plugins/bootstrap/css/bootstrap.min.css'); ?>" />
 	<link rel="stylesheet" href="<?= content_url('plugins/prism/prism.css'); ?>" />
 	<!-- font-awesome -->
-	<!-- <link rel="stylesheet" href="<?= content_url('plugins/font-awesome/font-awesome.min.css'); ?>" type="text/css" /> -->
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+	<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"> -->
 	<link rel="stylesheet" href="<?= content_url('plugins/cifireicon-feather/cifireicon-feather.min.css'); ?>" type="text/css" />
 	<link rel="stylesheet" href="<?= content_url('plugins/photoswipe/photoswipe.css'); ?>">
 	<link rel="stylesheet" href="<?= content_url('plugins/photoswipe/default-skin/default-skin.css'); ?>">
@@ -114,18 +114,18 @@
 			display: flex;
 			align-items: center;
 			padding-block: 1rem;
-			gap: 7rem;
+			gap: 2rem;
 			overflow-x: scroll;
 
 			background: rgb(2, 2, 2);
 			background: linear-gradient(90deg, rgba(2, 2, 2, 0.5327380952380952) 0%, rgba(237, 237, 237, 1) 50%, rgba(0, 0, 0, 0.4290966386554622) 100%);
 		}
 
-		@media (max-width: 767px) {
+		/* @media (max-width: 767px) {
 			.image-container {
 				gap: 2rem;
 			}
-		}
+		} */
 
 		.image-container::-webkit-scrollbar {
 			/* display: none; */
@@ -180,6 +180,15 @@
 		.navbar-shadow {
 			box-shadow: 0 4px 20px -2px black;
 		}
+
+		.dropdown button{
+			background-color: rgb(229, 229, 229);
+		}
+
+		/* Mengubah warna dropdown item ketika di hover */
+		/* .dropdown-menu .dropdown-item:hover {
+			background-color: red;
+		} */
 	</style>
 
 </head>

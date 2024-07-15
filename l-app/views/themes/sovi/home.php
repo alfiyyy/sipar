@@ -74,20 +74,20 @@ function getCategoryIcon($categoryName)
                                 </a>
                             </div>
                         </div>
-                        <div class="row w-100">
-                            <div class="col-md-8" style="height: 650px;">
+                        <div style="margin: 0;" class="row">
+                            <div class="detail col-lg-8" style="margin-bottom: 20px;">
                                 <div class="pt-4">
                                     <p class="p-0">Tipe Kamar</p>
-                                    <h5 id="room" class="pb-2 text-primary" style="margin-top: -10px;"></h5>
+                                    <h5 id="room" class="pb-2 text-primary" style=""></h5>
                                     <p>Kamar Dikelola Oleh</p>
-                                    <h5 id="title" class="mb-2 font-weight-bold" style="margin-top: -10px;"></h5>
+                                    <h5 id="title" class="mb-2 font-weight-bold" style=""></h5>
                                 </div>
-                                <div class="mt-4" id="deskripsiRoom" style="border-top: 1px solid #eae9e9; border-bottom: 1px solid #eae9e9; padding-top: 10px"></div>
-                                <div style="margin-top: 40px;">
+                                <div class="" id="deskripsiRoom" style="border-top: 1px solid #eae9e9; border-bottom: 1px solid #eae9e9; padding-top: 10px"></div>
+                                <div style="">
                                     <h5>Fasilitas</h5>
                                     <div id="fasilitas"></div>
                                 </div>
-                                <div style="margin-top: 40px;">
+                                <div style="">
                                     <h5>Layanan yang bisa kamu dapatkan</h5>
                                     <table class="table table-striped w-100">
                                         <thead>
@@ -99,38 +99,38 @@ function getCategoryIcon($categoryName)
                                         <tbody id="layanan"></tbody>
                                     </table>
                                 </div>
-                                <div style="margin-top: 40px;">
+                                <div style="">
                                     <h5 style="border-top: 1px solid #eae9e9; padding-top: 20px;">Peraturan Kamar</h5>
-                                    <div class="mt-2 d-flex">
+                                    <div class="d-flex">
                                         <span class="mr-2">
                                             <i class="fa fa-clock-o" aria-hidden="true"></i>
                                         </span>
-                                        <h6 class="font-size-sm font-weight-normal mt-1">Akses 24 Jam</h6>
+                                        <h6 class="font-size-sm font-weight-normal">Akses 24 Jam</h6>
                                     </div>
-                                    <div class="mt-1 d-flex">
+                                    <div class="d-flex">
                                         <span class="mr-2">
                                             <i class="fa fa-bed" aria-hidden="true"></i>
                                         </span>
-                                        <h6 class="font-size-sm font-weight-normal mt-1">Maks. 2 orang/ kamar</h6>
+                                        <h6 class="font-size-sm font-weight-normal">Maks. 2 orang/ kamar</h6>
                                     </div>
-                                    <div class="mt-1 d-flex">
+                                    <div class="d-flex">
                                         <span class="mr-2">
                                             <i class="fa fa-file-text-o" aria-hidden="true"></i>
                                         </span>
-                                        <h6 class="font-size-sm font-weight-normal mt-1">Menunjukan bukti (-) Swab saat check-in</h6>
+                                        <h6 class="font-size-sm font-weight-normal">Menunjukan bukti (-) Swab saat check-in</h6>
                                     </div>
                                 </div>
-                                <div class="text-white mt-3">HALLO</div>
+                                <!-- <div class="text-white">HALLO</div> -->
                             </div>
-                            <div class="col-md-4 position-sticky" style="top: 20px;">
-                                <div class="p-2 mt-3 mb-3 border rounded" id="info">
+                            <div class="col-lg-4" style="top: 20px;" id="info">
+                                <div class="p-2 mb-3 border rounded">
                                     <p class="font-weight-bold">Telepon:</p>
                                     <div id="telp"></div>
-                                    <p class="font-weight-bold mt-1">Email:</p>
+                                    <p class="font-weight-bold">Email:</p>
                                     <div id="email"></div>
-                                    <p class="font-weight-bold mt-1">Alamat:</p>
+                                    <p class="font-weight-bold">Alamat:</p>
                                     <div id="alamat"></div>
-                                    <a href="<?= $this->CI->config->base_url("daftar"); ?>" class="btn btn-success btn-block mt-4">Pesan Kamar</a>
+                                    <a href="<?= $this->CI->config->base_url("daftar"); ?>" class="btn btn-success btn-block">Pesan Kamar</a>
                                 </div>
                             </div>
                         </div>
@@ -172,7 +172,7 @@ function getCategoryIcon($categoryName)
                                 <div class="p-2" style="height: 115px; margin-inline: 20px; border: 1px solid #dfdfdf; overflow: auto">
                                     <ul class="list-group">
                                         <?php foreach ($getDataKategori->result_array() as $rowKategori) : ?>
-                                            <a href="#!" data-id="<?= $rowKategori['kategori_id']; ?>" data-toggle="modal" data-target=".bd-example-modal-lg" class="list-group-item list-group-item-action actionsBed">
+                                            <a style="font-family: 'Open Sans',sans-seriff;" href="#!" data-id="<?= $rowKategori['kategori_id']; ?>" data-toggle="modal" data-target=".bd-example-modal-lg" class="list-group-item list-group-item-action actionsBed">
                                                 <span class="mr-1">
                                                     <?php getCategoryIcon($rowKategori['kategori_nama']); ?>
                                                 </span>
@@ -189,14 +189,16 @@ function getCategoryIcon($categoryName)
                                         <span style="margin-inline:20px" class="mr-1" data-toggle="tooltip" data-placement="top" title="Nomor Kontak">
                                             <i class="fa fa-phone"></i>
                                         </span>
-                                        <?= $telpUnker['unker_telp'] ?>
+                                        <span style="font-family: 'Open Sans',sans-seriff;">
+                                            <?= $telpUnker['unker_telp'] ?>
+                                        </span>
                                     </p>
                                 </div>
                             <?php else : ?>
                                 <div class="p-2" style="height: 115px; margin-inline: 20px; border: 1px solid #dfdfdf;">
                                     <div class="list-group">
                                         <?php foreach ($getDataKategori->result_array() as $rowKategori) : ?>
-                                            <a href="#!" data-id="<?= $rowKategori['kategori_id']; ?>" data-toggle="modal" data-target=".bd-example-modal-lg" class="list-group-item list-group-item-action actionsBed">
+                                            <a style="font-family: 'Open Sans',sans-seriff;" href="#!" data-id="<?= $rowKategori['kategori_id']; ?>" data-toggle="modal" data-target=".bd-example-modal-lg" class="list-group-item list-group-item-action actionsBed">
                                                 <span class="mr-1">
                                                     <?php getCategoryIcon($rowKategori['kategori_nama']); ?>
                                                 </span>
@@ -213,7 +215,9 @@ function getCategoryIcon($categoryName)
                                         <span style="margin-inline:20px" class="mr-1" data-toggle="tooltip" data-placement="top" title="Nomor Kontak">
                                             <i class="fa fa-phone"></i>
                                         </span>
-                                        <?= $telpUnker['unker_telp'] ?>
+                                        <span style="font-family: 'Open Sans',sans-seriff;">
+                                            <?= $telpUnker['unker_telp'] ?>
+                                        </span>
                                     </p>
                                 </div>
                             <?php endif; ?>
@@ -251,6 +255,8 @@ function getCategoryIcon($categoryName)
         const deskripsi = document.querySelector("#deskripsiRoom");
         const body = document.querySelector("#hmodal");
         const rows = document.querySelector("#display");
+        const detail = document.querySelector(".detail");
+
 
         const formatter = new Intl.NumberFormat('id-ID', {
             style: 'currency',
@@ -263,18 +269,55 @@ function getCategoryIcon($categoryName)
             return textArea.value;
         };
 
+        window.addEventListener('resize', () => {
+            if (window.innerWidth < 992) {
+                info.classList.remove('position-fixed');
+                info.style.top = "";
+                info.style.right = "";
+                info.style.width = "";
+                detail.style.width = ""
+                detail.classList.remove('col-md-12')
+                detail.classList.add('col-md-12')
+            }
+        })
+
+        //script untuk sticky di bagian popup  
         scrolls.addEventListener('scroll', () => {
-            if (scrolls.scrollTop >= 388) {
-                info.classList.add('position-fixed');
-                info.style.top = "2%";
-                info.style.right = "15.6%";
-                info.style.width = "22.5%";
+            const originaInfolWidth = info.offsetWidth;
+            const originaDetaillWidth = detail.offsetWidth;
+
+            console.log(scrolls.scrollTop)
+
+            if (window.innerWidth >= 992) {
+                if (scrolls.scrollTop >= 248) {
+
+                    info.classList.add('position-fixed');
+                    info.style.top = `200px`;
+                    info.style.right = "15%";
+                    info.style.width = `${originaInfolWidth}px`;
+                    detail.style.width = `${originaDetaillWidth}px`
+                    detail.classList.remove('col-lg-8')
+                    detail.classList.add('col-md-12')
+                } else {
+                    info.classList.remove('position-fixed');
+                    info.style.top = "";
+                    info.style.right = "";
+                    info.style.width = "";
+                    detail.style.width = ""
+                    detail.classList.remove('col-md-12')
+                    detail.classList.add('col-lg-8')
+                }
             } else {
                 info.classList.remove('position-fixed');
                 info.style.top = "";
                 info.style.right = "";
                 info.style.width = "";
+                detail.style.width = ""
+                detail.classList.remove('col-md-12')
+                detail.classList.add('col-lg-8')
+
             }
+
         });
 
         actions.forEach(row => {
@@ -282,7 +325,7 @@ function getCategoryIcon($categoryName)
                 rows.style.display = 'none';
                 body.style.display = 'block';
                 body.innerHTML = `
-                <div style="width: 100%; margin-top: 25%;">
+                <div style="width: 100%;">
                     <img class="d-block" style="margin: 0 auto; width: 60px; height: 60px;" src="https://bpsdm.pu.go.id/sipar/l-content/thumbs/loading.gif" alt="Loading">
                     <h6 class="text-center ml-1">Loading...</h6>
                 </div>
@@ -335,11 +378,11 @@ function getCategoryIcon($categoryName)
                         if (data?.dataFasilitas.length > 0) {
                             data.dataFasilitas.map(row => {
                                 fasilitas.innerHTML += `
-                                <div class="mt-2 d-flex">
+                                <div class= d-flex">
                                     <span class="mr-2">
-                                        <i class="fa fa-${row.rf_icon}" aria-hidden="true"></i>
+                                        <i class="fa-solid fa-${row.rf_icon}" aria-hidden="true"></i>
                                     </span>
-                                    <h6 style="font-size: 14px; font-weight: normal; margin-top: 5px;">${row.rf_nama}</h6>
+                                    <h6 style="font-size: 14px; font-weight: normal;">${row.rf_nama}</h6>
                                 </div>
                             `;
                             });

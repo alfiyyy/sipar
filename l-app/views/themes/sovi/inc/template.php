@@ -27,7 +27,7 @@
 	<link rel="stylesheet" href="<?= content_url('plugins/bootstrap/css/bootstrap.min.css'); ?>" />
 	<link rel="stylesheet" href="<?= content_url('plugins/prism/prism.css'); ?>" />
 	<!-- font-awesome -->
-	 <link rel="stylesheet" href="<?=content_url('plugins/font-awesome/font-awesome.min.css');?>" type="text/css"/>
+	<link rel="stylesheet" href="<?= content_url('plugins/font-awesome/font-awesome.min.css'); ?>" type="text/css" />
 	<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"> -->
 	<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"> -->
 	<link rel="stylesheet" href="<?= content_url('plugins/cifireicon-feather/cifireicon-feather.min.css'); ?>" type="text/css" />
@@ -181,7 +181,7 @@
 			box-shadow: 0 4px 20px -2px black;
 		}
 
-		.dropdown button{
+		.dropdown button {
 			background-color: rgb(229, 229, 229);
 		}
 
@@ -243,7 +243,7 @@
 						// Load web menu.
 						$this->CI->load_menu(
 							$menu_group = 2,
-							$ul = 'class="navbar-nav ml-auto"',
+							$ul = 'class="navbar-nav ml-auto d-flex align-items-center"',
 							$ul_li = 'class="nav-item dropdown"',
 							$ul_li_a = 'class="nav-link"', // Change nav-link to text-dark for dark text color
 							$ul_li_a_ul = 'class="dropdown-menu"'
@@ -513,7 +513,7 @@
 			});
 		});
 
-		//menampilkan section ke paling atas (pertama) sesuai pilihan dropdown 
+		//Menampilkan section ke paling atas (pertama) sesuai pilihan dropdown pada halaman SMR dan SCR
 		document.addEventListener('DOMContentLoaded', function() {
 			const dropdownItems = document.querySelectorAll('.dropdown-item');
 			const sections = document.querySelectorAll('.section-container');
@@ -568,6 +568,26 @@
 				}
 			});
 		});
+
+		//untuk navbar-item
+		document.addEventListener("DOMContentLoaded", () => {
+			const navbar = document.querySelector(".navbar-nav.ml-auto.d-flex.align-items-center");
+
+			if (window.innerWidth < 768) {
+				navbar.classList.remove('align-items-center')
+			}
+
+		})
+
+
+		window.addEventListener('resize', () => {
+			const navbar = document.querySelector(".navbar-nav.ml-auto.d-flex.align-items-center");
+
+			if (window.innerWidth < 768) {
+				navbar.classList.remove('align-items-center')
+			}
+
+		})
 	</script>
 </body>
 

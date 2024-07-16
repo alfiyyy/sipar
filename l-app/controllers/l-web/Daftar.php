@@ -93,11 +93,17 @@ class Daftar extends Web_Controller {
                 }
             }
             else
-            {
-                // Validation error response
-                $response['success'] = false;
-                $response['validation_errors'] = validation_errors();
-            }
+                {
+                    if (form_error('nip')) {
+                        $response['success'] = false;
+                        $response['nip_exists'] = true;
+                        $response['message'] = 'NIP/NIK sudah ada, silahkan ganti.';
+                    } else {
+                        // Validation error response
+                        $response['success'] = false;
+                        $response['validation_errors'] = validation_errors();
+                    }
+                }
 
             // Output JSON response
             echo json_encode($response);

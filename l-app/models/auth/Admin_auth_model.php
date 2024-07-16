@@ -29,7 +29,7 @@ class Admin_auth_model extends CI_Model {
         {
             $userdata = $query->row_array();
 
-            if ( decrypt($userdata['password']) == decrypt($input['password']) )
+            if ( password_verify($input['password'],$userdata['password']) )
                 return TRUE;
             else
                 return FALSE;

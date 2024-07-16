@@ -14,7 +14,8 @@ class Daftar_model extends CI_Model {
     public function insert(array $data)
     {
         // Encrypt the password before inserting it into the database
-        $data['password'] = password_hash($data['password'], PASSWORD_BCRYPT);
+        // sudah di enkripsi di Dafta.php
+        // $data['password'] = password_hash($data['password'], PASSWORD_BCRYPT);
         
         $query = $this->db->insert($this->_table, $data);
         

@@ -62,24 +62,31 @@
 
 	<!-- content -->
 	<div class="auth-container mg-t-50" style="padding-top: 20px;">
-		<div class="text-center mg-b-30">
-			<img class="img-fluid" src="<?= content_url('images/sipar.png'); ?>" alt="logo">
-			<hr>
-			<h4 class="mg-b-10 tx-semiboldX"><?= lang_line('signin_title'); ?></h4>
-			<p><?php //lang_line('signin_welcome');
-				?></p>
-		</div>
-		<div class="err"><?= $this->cifire_alert->show('login'); ?></div>
-		<div class="card auth-box">
-			<?= form_open('', 'id="form-login" class="login-form" autocomplete="off"'); ?>
-			<div class="form-group">
-				<label><?= lang_line('username') ?></label>
-				<input id="username" type="text" name="<?= $input_uname; ?>" class="form-control input-username" maxlength="20" />
-			</div>
-			<div class="input-password"></div>
-			<?= form_close(); ?>
-		</div>
-	</div>
+        <div class="text-center mg-b-30">
+            <img class="img-fluid" src="<?= content_url('images/sipar.png'); ?>" alt="logo">
+            <hr>
+            <h4 class="mg-b-10 tx-semiboldX"><?= lang_line('signin_title'); ?></h4>
+            <p><?php //lang_line('signin_welcome'); 
+                ?></p>
+        </div>
+        <div class="err"><?= $this->cifire_alert->show('login'); ?></div>
+        <div class="card auth-box">
+            <?= form_open('', 'id="form-login" class="login-form" autocomplete="off" onsubmit="return validateForm();"'); ?>
+            <div class="form-group">
+                <label><?= lang_line('username') ?></label>
+                <input id="username" type="text" name="<?= $input_uname; ?>" class="form-control input-username" maxlength="20" />
+            </div>
+            <div class="form-group">
+                <label><?= lang_line('password') ?></label>
+                <input id="password" type="password" name="<?= $input_pwd; ?>" class="form-control" />
+            </div>
+            <button type="submit" class="btn btn-brand btn-block mg-t-20"><?= lang_line('button_login') ?></button>
+            <div class="text-center mg-t-20">
+                <a href="<?= admin_url('forgot'); ?>"><?= lang_line('forgot_password') ?>?</a>
+            </div>
+            <?= form_close(); ?>
+        </div>
+    </div>
 	<!-- content -->
 	<br>
 	<br>
@@ -130,5 +137,6 @@
 		</div>
 	</footer>
 	<!-- footer -->
-
-	<?= $script ?>
+    
+	
+</div>

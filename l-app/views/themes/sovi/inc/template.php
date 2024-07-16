@@ -185,10 +185,26 @@
 			background-color: rgb(229, 229, 229);
 		}
 
-		/* Mengubah warna dropdown item ketika di hover */
-		/* .dropdown-menu .dropdown-item:hover {
-			background-color: red;
-		} */
+		/* untuk halaman daftar */
+		::-webkit-input-placeholder {
+			color: grey !important;
+			opacity: 0.5 !important;
+		}
+
+		:-moz-placeholder {
+			color: grey !important;
+			opacity: 0.5 !important;
+		}
+
+		::-moz-placeholder {
+			color: grey !important;
+			opacity: 0.5 !important;
+		}
+
+		:-ms-input-placeholder {
+			color: grey !important;
+			opacity: 0.5 !important;
+		}
 	</style>
 
 </head>

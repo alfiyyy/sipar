@@ -19,118 +19,113 @@ class Auth extends MY_Controller
 
 
 	public function index()
-	{
-		$this->meta_title(lang_line('signin_title'));
+{
+    $this->meta_title(lang_line('signin_title'));
 
-		if (login_status() == TRUE) {
-			redirect(admin_url('dashboard'), 'location', 302);
-		} else {
-			if ($this->input->is_ajax_request()) {
-				$this->form_validation->set_rules(array(
-					array(
-						'field' => 'data',
-						'label' => lang_line('username'),
-						'rules' => 'required|trim|min_length[4]|max_length[20]|regex_match[/^[a-z0-9_.]+$/]'
-					)
-				));
+    if (login_status() == TRUE) {
+        redirect(admin_url('dashboard'), 'location', 302);
+    } else {
+        if ($this->input->is_ajax_request()) {
+            $this->form_validation->set_rules(array(
+                array(
+                    'field' => 'data',
+                    'label' => lang_line('username'),
+                    'rules' => 'required|trim|min_length[4]|max_length[20]|regex_match[/^[a-z0-9_.]+$/]'
+                )
+            ));
 
-				if ($this->form_validation->run()) {
-					$username = xss_filter($this->input->post('data'), 'xss');
-					$response['status'] =  $this->auth_model->cek_user(encrypt($username));
-					$response['html'] =  '<div class="form-group">
-												<label>' . lang_line('password') . '</label>
-												<input type="password" name="' . $this->vars['input_pwd'] . '" id="password" class="form-control" required autofocus/>
-											</div>
-											<button type="submit" class="btn btn-brand btn-block mg-t-20">' . lang_line('button_login') . '</button>
-											<div class="text-center mg-t-20">
-												<a href="' . admin_url('forgot') . '">' . lang_line('forgot_password') . '?</a>
-											</div>';
-				} else {
-					$response = 0;
-				}
-				$this->json_output($response);
-			}
+            if ($this->form_validation->run()) {
+                $username = xss_filter($this->input->post('data'), 'xss');
+                $response['status'] =  $this->auth_model->cek_user(encrypt($username));
+                $response['html'] =  '<div class="form-group">
+                                            <label>' . lang_line('password') . '</label>
+                                            <input type="password" name="' . $this->vars['input_pwd'] . '" id="password" class="form-control" required autofocus/>
+                                        </div>
+                                        <button type="submit" class="btn btn-brand btn-block mg-t-20">' . lang_line('button_login') . '</button>
+                                        <div class="text-center mg-t-20">
+                                            <a href="' . admin_url('forgot') . '">' . lang_line('forgot_password') . '?</a>
+                                        </div>';
+            } else {
+                $response = 0;
+            }
+            $this->json_output($response);
+        }
 
-			if ($this->input->method() == 'post') {
-				return $this->_submit_login();
-			} else {
-				$this->vars['script'] = '<script type="text/javascript">$("input:not(textarea)").keydown(function(t){if(13==(t.witch||t.keyCode))return t.preventDefault(),!1}),$(".input-username").on("input",function(){var t=$(this),n=$(this).val();n.length>=20&&t.val(function(){return console.log(n.substr(0,20)),n.substr(0,20)}),$.ajax({type:"POST",data:{data:n,csrf_name:csrfToken},dataType:"json",cache:!1,success:function(t){"1"==t.status?($(".input-password").html(t.html),$("#password").focus()):$(".input-password").html("")}})});</script>';
+        if ($this->input->method() == 'post') {
+            return $this->_submit_login();
+        } else {
+            $this->vars['script'] = '<script type="text/javascript">$("input:not(textarea)").keydown(function(t){if(13==(t.witch||t.keyCode))return t.preventDefault(),!1}),$(".input-username").on("input",function(){var t=$(this),n=$(this).val();n.length>=20&&t.val(function(){return console.log(n.substr(0,20)),n.substr(0,20)}),$.ajax({type:"POST",data:{data:n,csrf_name:csrfToken},dataType:"json",cache:!1,success:function(t){"1"==t.status?($(".input-password").html(t.html),$("#password").focus()):$(".input-password").html("")}})});</script>';
 
+            $this->load->view('backend/auth_header', $this->vars);
+            $this->load->view('backend/auth_login', $this->vars);
+            $this->load->view('backend/auth_footer', $this->vars);
+        }
+    }
+}
 
+private function _submit_login($name = NULL, $value = NULL)
+{
+    foreach ($this->input->post() as $key => $val) {
+        $name .= $key . ',';
+        $value .= $val . ',';
+    }
 
-				$this->load->view('backend/auth_header', $this->vars);
-				$this->load->view('backend/auth_login', $this->vars);
-				$this->load->view('backend/auth_footer', $this->vars);
-			}
-		}
-	}
+    $input_name = explode(',', $name);
+    $input_value = explode(',', $value);
 
+    if (
+        decrypt($input_name[0]) == decrypt($this->vars['input_uname']) &&
+        decrypt($input_name[1]) == decrypt($this->vars['input_pwd'])
+    ) {
+        $this->form_validation->set_rules(array(
+            array(
+                'field' => $input_name[0],
+                'label' => lang_line('username'),
+                'rules' => 'required|trim|min_length[4]|max_length[20]|regex_match[/^[a-z0-9_.]+$/]'
+            ),
+            array(
+                'field' => $input_name[1],
+                'label' => lang_line('password'),
+                'rules' => 'required|min_length[6]|max_length[20]'
+            )
+        ));
 
-	private function _submit_login($name = NULL, $value = NULL)
-	{
-		foreach ($this->input->post() as $key => $val) {
-			$name .= $key . ',';
-			$value .= $val . ',';
-		}
+        if ($this->form_validation->run()) {
+            $data_input = array(
+                'username' => $this->input->post($input_name[0]),
+                'password' => $this->input->post($input_name[1])
+            );
 
-		$input_name = explode(',', $name);
-		$input_value = explode(',', $value);
+            $cek_data_input = $this->auth_model->cek_login($data_input);
 
-		if (
-			decrypt($input_name[0]) == decrypt($this->vars['input_uname']) &&
-			decrypt($input_name[1]) == decrypt($this->vars['input_pwd'])
-		) {
-			$this->form_validation->set_rules(array(
-				array(
-					'field' => $input_name[0],
-					'label' => lang_line('username'),
-					'rules' => 'required|trim|min_length[4]|max_length[20]|regex_match[/^[a-z0-9_.]+$/]'
-				),
-				array(
-					'field' => $input_name[1],
-					'label' => lang_line('password'),
-					'rules' => 'required|min_length[6]|max_length[20]'
-				)
-			));
+            if ($cek_data_input == TRUE) {
+                $get_user = $this->auth_model->get_user($data_input);
 
-			if ($this->form_validation->run()) {
-				$data_input = array(
-					'username' => $this->input->post($input_name[0]),
-					'password' => encrypt($this->input->post($input_name[1]))
-				);
+                $this->session->set_userdata('_CiFireLogin', TRUE);
+                $this->session->set_userdata('key_id', encrypt($get_user['id']));
+                $this->session->set_userdata('key_group', encrypt($get_user['key_group']));
+                $this->session->set_userdata('filemanager_access', array(
+                    'user_group' => $get_user['key_group'],
+                    'read_access' => $this->role->access('filemanager', 'read_access'),
+                    'write_access' => $this->role->access('filemanager', 'write_access'),
+                    'modify_access' => $this->role->access('filemanager', 'modify_access'),
+                    'delete_access' => $this->role->access('filemanager', 'delete_access')
+                ));
+                if ($this->role->access('filemanager', 'read_access') == true) {
+                    $this->session->set_userdata('FM_KEY', md5($get_user['key_group'] . date('Ymdhis')));
+                }
 
-				$cek_data_input = $this->auth_model->cek_login($data_input);
-
-				if ($cek_data_input == TRUE) {
-					$get_user = $this->auth_model->get_user($data_input);
-
-					$this->session->set_userdata('_CiFireLogin', TRUE);
-					$this->session->set_userdata('key_id', encrypt($get_user['id']));
-					$this->session->set_userdata('key_group', encrypt($get_user['key_group']));
-					$this->session->set_userdata('filemanager_access', array(
-						'user_group' => $get_user['key_group'],
-						'read_access' => $this->role->access('filemanager', 'read_access'),
-						'write_access' => $this->role->access('filemanager', 'write_access'),
-						'modify_access' => $this->role->access('filemanager', 'modify_access'),
-						'delete_access' => $this->role->access('filemanager', 'wdeleteaccess')
-					));
-					if ($this->role->access('filemanager', 'read_access') == true) {
-						$this->session->set_userdata('FM_KEY', md5($get_user['key_group'] . date('Ymdhis')));
-					}
-
-					redirect(admin_url('dashboard'), 'location', 302);
-				} else {
-					$this->cifire_alert->set('login', 'warning', lang_line('message_login_error'));
-					redirect(uri_string(), 'location', 302);
-				}
-			} else {
-				$this->cifire_alert->set('login', 'warning', validation_errors());
+                redirect(admin_url('dashboard'), 'location', 302);
+            } else {
+                $this->session->set_flashdata('login_error', true);
 				redirect(uri_string(), 'location', 302);
 			}
-		} else {
-			show_400();
-		}
-	}
+        } 
+    } else {
+        show_400();
+    }
+}
+
 
 
 	private function _cek_username($username = '')

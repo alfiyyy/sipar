@@ -78,16 +78,16 @@ function getCategoryIcon($categoryName)
                             <div class="detail col-lg-8" style="margin-bottom: 20px;">
                                 <div class="pt-4">
                                     <p class="p-0">Tipe Kamar</p>
-                                    <h5 id="room" class="pb-2 text-primary" style=""></h5>
+                                    <h5 id="room" class="pb-2 text-primary"></h5>
                                     <p>Kamar Dikelola Oleh</p>
-                                    <h5 id="title" class="mb-2 font-weight-bold" style=""></h5>
+                                    <h5 id="title" class="mb-2 font-weight-bold"></h5>
                                 </div>
                                 <div class="" id="deskripsiRoom" style="border-top: 1px solid #eae9e9; border-bottom: 1px solid #eae9e9; padding-top: 10px"></div>
-                                <div style="">
+                                <div style="padding-block: 2rem;">
                                     <h5>Fasilitas</h5>
                                     <div id="fasilitas"></div>
                                 </div>
-                                <div style="">
+                                <div style="padding-block:2rem">
                                     <h5>Layanan yang bisa kamu dapatkan</h5>
                                     <table class="table table-striped w-100">
                                         <thead>
@@ -99,25 +99,25 @@ function getCategoryIcon($categoryName)
                                         <tbody id="layanan"></tbody>
                                     </table>
                                 </div>
-                                <div style="">
-                                    <h5 style="border-top: 1px solid #eae9e9; padding-top: 20px;">Peraturan Kamar</h5>
-                                    <div class="d-flex">
-                                        <span class="mr-2">
+                                <div>
+                                    <h5 style="border-top: 1px solid #eae9e9;">Peraturan Kamar</h5>
+                                    <div class="d-flex justify-content-evenly align-items-center">
+                                        <span style="width: 50px;" class="">
                                             <i class="fa fa-clock-o" aria-hidden="true"></i>
                                         </span>
-                                        <h6 class="font-size-sm font-weight-normal">Akses 24 Jam</h6>
+                                        <span class="font-size-sm font-weight-normal">Akses 24 Jam</span>
                                     </div>
-                                    <div class="d-flex">
-                                        <span class="mr-2">
+                                    <div class="d-flex justify-content-evenly align-items-center">
+                                        <span style="width: 50px;" class="">
                                             <i class="fa fa-bed" aria-hidden="true"></i>
                                         </span>
-                                        <h6 class="font-size-sm font-weight-normal">Maks. 2 orang/ kamar</h6>
+                                        <span class="font-size-sm font-weight-normal">Maks. 2 orang/ kamar</span>
                                     </div>
-                                    <div class="d-flex">
-                                        <span class="mr-2">
+                                    <div class="d-flex justify-content-evenly align-items-center">
+                                        <span style="width: 50px;" class="">
                                             <i class="fa fa-file-text-o" aria-hidden="true"></i>
                                         </span>
-                                        <h6 class="font-size-sm font-weight-normal">Menunjukan bukti (-) Swab saat check-in</h6>
+                                        <span class="font-size-sm font-weight-normal">Menunjukan bukti (-) Swab saat check-in</span>
                                     </div>
                                 </div>
                                 <!-- <div class="text-white">HALLO</div> -->
@@ -257,6 +257,7 @@ function getCategoryIcon($categoryName)
         const rows = document.querySelector("#display");
         const detail = document.querySelector(".detail");
 
+        const triggerOffset = 248; // Offset value where the info section should become sticky
 
         const formatter = new Intl.NumberFormat('id-ID', {
             style: 'currency',
@@ -270,51 +271,79 @@ function getCategoryIcon($categoryName)
         };
 
         window.addEventListener('resize', () => {
-            if (window.innerWidth < 992) {
+            const originalInfoWidth = info.offsetWidth;
+            const originalDetailWidth = detail.offsetWidth;
+            const infoOffsetTop = scrolls.scrollTop;
+            const modalRightEdge = scrolls.getBoundingClientRect().right;
+            const viewportRightEdge = window.innerWidth;
+            const rightOffset = viewportRightEdge - modalRightEdge + 18;
+            if (window.innerWidth >= 992) {
+
+                if(infoOffsetTop >= triggerOffset){
+                    info.classList.add('position-fixed');
+                    info.style.top = `200px`; // Adjust top offset as needed
+                    info.style.right = `${rightOffset}px`; // Set right offset
+                    info.style.width = `${originalInfoWidth}px`;
+                    detail.style.width = `${originalDetailWidth}px`;
+                    detail.classList.remove('col-lg-8');
+                    detail.classList.add('col-md-12');
+                }
+
+                // info.classList.remove('position-fixed');
+                // info.style.top = "";
+                // info.style.right = "";
+                // info.style.width = "";
+                // detail.style.width = "";
+                // detail.classList.remove('col-md-12');
+                // detail.classList.add('col-lg-8');
+            } else {
                 info.classList.remove('position-fixed');
                 info.style.top = "";
                 info.style.right = "";
                 info.style.width = "";
-                detail.style.width = ""
-                detail.classList.remove('col-md-12')
-                detail.classList.add('col-md-12')
+                detail.style.width = "";
+                detail.classList.remove('col-md-12');
+                detail.classList.add('col-lg-8');
+                
             }
-        })
+        });
 
-        //script untuk sticky di bagian popup  
+        // Script to make the info section sticky within the popup
         scrolls.addEventListener('scroll', () => {
-            const originaInfolWidth = info.offsetWidth;
-            const originaDetaillWidth = detail.offsetWidth;
-
-            console.log(scrolls.scrollTop)
+            const originalInfoWidth = info.offsetWidth;
+            const originalDetailWidth = detail.offsetWidth;
+            const infoOffsetTop = scrolls.scrollTop;
+            const modalRightEdge = scrolls.getBoundingClientRect().right;
+            const viewportRightEdge = window.innerWidth;
+            const rightOffset = viewportRightEdge - modalRightEdge + 18;
 
             if (window.innerWidth >= 992) {
-                if (scrolls.scrollTop >= 248) {
 
+                if (infoOffsetTop >= triggerOffset) {
                     info.classList.add('position-fixed');
-                    info.style.top = `200px`;
-                    info.style.right = "15%";
-                    info.style.width = `${originaInfolWidth}px`;
-                    detail.style.width = `${originaDetaillWidth}px`
-                    detail.classList.remove('col-lg-8')
-                    detail.classList.add('col-md-12')
+                    info.style.top = `200px`; // Adjust top offset as needed
+                    info.style.right = `${rightOffset}px`; // Set right offset
+                    info.style.width = `${originalInfoWidth}px`;
+                    detail.style.width = `${originalDetailWidth}px`;
+                    detail.classList.remove('col-lg-8');
+                    detail.classList.add('col-md-12');
                 } else {
                     info.classList.remove('position-fixed');
                     info.style.top = "";
                     info.style.right = "";
                     info.style.width = "";
-                    detail.style.width = ""
-                    detail.classList.remove('col-md-12')
-                    detail.classList.add('col-lg-8')
+                    detail.style.width = "";
+                    detail.classList.remove('col-md-12');
+                    detail.classList.add('col-lg-8');
                 }
             } else {
                 info.classList.remove('position-fixed');
                 info.style.top = "";
                 info.style.right = "";
                 info.style.width = "";
-                detail.style.width = ""
-                detail.classList.remove('col-md-12')
-                detail.classList.add('col-lg-8')
+                detail.style.width = "";
+                detail.classList.remove('col-md-12');
+                detail.classList.add('col-lg-8');
 
             }
 
@@ -378,11 +407,11 @@ function getCategoryIcon($categoryName)
                         if (data?.dataFasilitas.length > 0) {
                             data.dataFasilitas.map(row => {
                                 fasilitas.innerHTML += `
-                                <div class= d-flex">
-                                    <span class="mr-2">
-                                        <i class="fa-solid fa-${row.rf_icon}" aria-hidden="true"></i>
+                                <div class=d-flex justify-content-evenly align-items-center">
+                                    <span style="width:50px" class="">
+                                        <i class="fa fa-${row.rf_icon}" aria-hidden="true"></i>
                                     </span>
-                                    <h6 style="font-size: 14px; font-weight: normal;">${row.rf_nama}</h6>
+                                    <span style="font-size: 14px; font-weight: normal;">${row.rf_nama}</span>
                                 </div>
                             `;
                             });

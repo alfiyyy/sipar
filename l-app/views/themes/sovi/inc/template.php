@@ -27,7 +27,8 @@
 	<link rel="stylesheet" href="<?= content_url('plugins/bootstrap/css/bootstrap.min.css'); ?>" />
 	<link rel="stylesheet" href="<?= content_url('plugins/prism/prism.css'); ?>" />
 	<!-- font-awesome -->
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+	 <link rel="stylesheet" href="<?=content_url('plugins/font-awesome/font-awesome.min.css');?>" type="text/css"/>
+	<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"> -->
 	<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"> -->
 	<link rel="stylesheet" href="<?= content_url('plugins/cifireicon-feather/cifireicon-feather.min.css'); ?>" type="text/css" />
 	<link rel="stylesheet" href="<?= content_url('plugins/photoswipe/photoswipe.css'); ?>">
@@ -61,9 +62,8 @@
 		}
 
 		.g-item .g-link img {
-			min-width: 200px;
-			max-width: 250px;
-			/* height: auto; */
+			min-width: 250px;
+			/* max-width: 250px; */
 			display: block;
 			border: 1px solid #ddd;
 			padding: 5px;
@@ -203,13 +203,13 @@
 					</div>
 					<div class="top-bar-right">
 						<a href="https://www.facebook.com/KemenPUPR" class="mx-2" data-toggle="tooltip" title="Facebook">
-							<i class="fab fa-facebook"></i>
+							<i class="fa fa-facebook-official"></i>
 						</a>
 						<a href="https://www.twitter.com/kemenPU" class="mx-2" data-toggle="tooltip" title="Twitter">
-							<i class="fab fa-twitter"></i>
+							<i class="fa fa-twitter"></i>
 						</a>
 						<a href="https://www.instagram.com/pupr_bpsdm/" class="mx-2" data-toggle="tooltip" title="Instagram">
-							<i class="fab fa-instagram"></i>
+							<i class="fa fa-instagram"></i>
 						</a>
 					</div>
 				</div>

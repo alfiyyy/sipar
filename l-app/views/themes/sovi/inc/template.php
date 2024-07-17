@@ -71,6 +71,20 @@
 			border-radius: 4px;
 		}
 
+		.link-logo-sipar{
+			height: 80px;
+		}
+
+		@media (max-width: 819px) {
+			.link-logo-sipar{
+				height: 70px;
+			}
+
+			nav ul li a {
+				font-size: 0.9rem;
+			}
+		}
+
 		.img-thumbnail {
 			padding: 4px;
 			background-color: #f7f7f7;
@@ -100,7 +114,7 @@
 			/* height: 20rem; */
 			border-radius: 10px;
 			background: linear-gradient(90deg, #f5f5f5 0%, #ffffff 60%, #f5f5f5 100%);
-			box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+			box-shadow: rgba(0, 0, 0, 0.20) 0px 0px 15px;
 
 		}
 
@@ -119,6 +133,16 @@
 
 			background: rgb(2, 2, 2);
 			background: linear-gradient(90deg, rgba(2, 2, 2, 0.5327380952380952) 0%, rgba(237, 237, 237, 1) 50%, rgba(0, 0, 0, 0.4290966386554622) 100%);
+		}
+
+		.odd-image-container {
+			border-radius: 0px 10px 10px 0;
+			/* Adjust the value as needed */
+		}
+
+		.even-image-container {
+			border-radius: 10px 0 0 10px;
+			/* Adjust the value as needed */
 		}
 
 		/* @media (max-width: 767px) {
@@ -245,10 +269,10 @@
 
 			<!-- top nav -->
 			<nav class="navbar navbar-expand-md navbar-light p-0" style="background-color: #fff; font-family: 'Montserrat', sans-serif;">
-				<div class="container">
+				<div style="margin-inline: 8px; width: 100%;" class="d-flex justify-content-between">
 					<center>
-						<a class="navbar-brand p-0 m-0" style="height: 80px;" href="<?= site_url(); ?>">
-							<img src="<?= favicon('logo'); ?>" alt="Logo" style="height: inherit;" />
+						<a class="navbar-brand p-0 m-0 link-logo-sipar" href="<?= site_url(); ?>">
+							<img class="logo-sipar" src="<?= favicon('logo'); ?>" alt="Logo" style="height: inherit;" />
 						</a>
 					</center>
 					<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -259,7 +283,7 @@
 						// Load web menu.
 						$this->CI->load_menu(
 							$menu_group = 2,
-							$ul = 'class="navbar-nav ml-auto d-flex align-items-center"',
+							$ul = 'class="navbar-nav ml-auto d-flex"',
 							$ul_li = 'class="nav-item dropdown"',
 							$ul_li_a = 'class="nav-link"', // Change nav-link to text-dark for dark text color
 							$ul_li_a_ul = 'class="dropdown-menu"'
@@ -535,8 +559,26 @@
 			const sections = document.querySelectorAll('.section-container');
 			const container = document.querySelector('.cat');
 			const dropdownButton = document.getElementById('dropdownMenuButton');
+			const pswpContainer = document.querySelector('.pswp'); // Select the PhotoSwipe container
 			let originalOrder = Array.from(sections); // Store the original order of sections
-			let currentSection = null;
+			let sectionsParent = sections[0].parentElement; // Assuming all sections have the same parent
+
+			function setOddEvenClasses() {
+				const imageContainers = document.querySelectorAll('.image-container');
+				imageContainers.forEach((container, index) => {
+					container.classList.remove('odd-image-container', 'even-image-container');
+					if (index % 2 === 0) {
+						container.classList.add('odd-image-container');
+						container.classList.remove('even-image-container');
+					} else {
+						container.classList.add('even-image-container');
+						container.classList.remove('odd-image-container');
+					}
+				});
+			}
+
+			// Initial setup for image containers
+			setOddEvenClasses();
 
 			dropdownItems.forEach(function(item) {
 				item.addEventListener('click', function(event) {
@@ -556,7 +598,7 @@
 
 					// Move the selected section below the dropdown button
 					targetSection.classList.add('hidden');
-					container.parentElement.insertBefore(targetSection, container.nextSibling);
+					sectionsParent.insertBefore(targetSection, container.nextSibling);
 
 					// Trigger reflow to restart the transition
 					void targetSection.offsetWidth;
@@ -564,10 +606,15 @@
 					// Remove the hidden class to start the transition
 					targetSection.classList.remove('hidden');
 					targetSection.classList.add('moved-section');
-					currentSection = targetSection;
+
+					// Ensure the pswp container remains at the bottom
+					sectionsParent.appendChild(pswpContainer);
+
+					setOddEvenClasses();
 				});
 			});
 		});
+
 
 		$(document).ready(function() {
 			// Initialize sticky navbar
@@ -587,23 +634,39 @@
 
 		//untuk navbar-item
 		document.addEventListener("DOMContentLoaded", () => {
-			const navbar = document.querySelector(".navbar-nav.ml-auto.d-flex.align-items-center");
+			const navbar = document.querySelector(".navbar-nav.ml-auto.d-flex");
 
 			if (window.innerWidth < 768) {
 				navbar.classList.remove('align-items-center')
+			} else {
+				navbar.classList.add('align-items-center')
 			}
 
 		})
 
-
+		//untuk navbar-item
 		window.addEventListener('resize', () => {
-			const navbar = document.querySelector(".navbar-nav.ml-auto.d-flex.align-items-center");
+			const navbar = document.querySelector(".navbar-nav.ml-auto.d-flex");
 
 			if (window.innerWidth < 768) {
 				navbar.classList.remove('align-items-center')
+			} else {
+				navbar.classList.add('align-items-center')
 			}
 
 		})
+
+		// //untuk halaman SMR dan SCR
+		// document.addEventListener('DOMContentLoaded', function() {
+		// 	const imageContainers = document.querySelectorAll('.image-container');
+		// 	imageContainers.forEach((container, index) => {
+		// 		if (index % 2 === 0) {
+		// 			container.classList.add('odd-image-container');
+		// 		} else {
+		// 			container.classList.add('even-image-container');
+		// 		}
+		// 	});
+		// });
 	</script>
 </body>
 

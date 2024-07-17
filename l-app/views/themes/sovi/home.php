@@ -158,7 +158,7 @@ function getCategoryIcon($categoryName)
         $telpUnker = $this->CI->index_model->get_unker_by('unker_id', $res_post1b['unker_id'], 'row');
     ?>
         <div class="col-md-6 mt-3 mb-3">
-            <div class="card" style="background: #fff;color: #636262; box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px; min-height: 200px;">
+            <div class="card" style="background: #fff;color: #636262; box-shadow: rgba(0, 0, 0, 0.20) 0px 0px 15px; min-height: 200px;">
                 <div class="row">
                     <div class="col-xl-6">
                         <img class="card-img-top" src="<?= post_images($res_post1b['unker_image'], 'small', TRUE); ?>" alt="Card image cap" style="height: 220px; border-radius: 15px; transform: scale(0.95);">

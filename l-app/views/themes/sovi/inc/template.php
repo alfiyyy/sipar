@@ -75,13 +75,13 @@
 			height: 80px;
 		}
 
-		@media (max-width: 819px) {
+		@media (max-width: 848px) {
 			.link-logo-sipar{
 				height: 70px;
 			}
 
 			nav ul li a {
-				font-size: 0.9rem;
+				font-size: 0.85rem;
 			}
 		}
 
@@ -269,7 +269,7 @@
 
 			<!-- top nav -->
 			<nav class="navbar navbar-expand-md navbar-light p-0" style="background-color: #fff; font-family: 'Montserrat', sans-serif;">
-				<div style="margin-inline: 8px; width: 100%;" class="d-flex justify-content-between">
+				<div style="margin-inline: 8px; width: 100%;" class="container-fluid">
 					<center>
 						<a class="navbar-brand p-0 m-0 link-logo-sipar" href="<?= site_url(); ?>">
 							<img class="logo-sipar" src="<?= favicon('logo'); ?>" alt="Logo" style="height: inherit;" />

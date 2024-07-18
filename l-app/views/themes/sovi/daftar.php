@@ -1,7 +1,7 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 
 <!-- left content -->
-<div class="col-lg-12 col-md-12 clearfix mb-5 left-content">
+<div class="col-lg-12 col-md-12 clearfix left-content">
     <div class="post-head">
         <h4 class="pd-0 mg-0 tx-20 tx-dark tx-spacing--1">Formulir Pendaftaran</h4>
     </div>

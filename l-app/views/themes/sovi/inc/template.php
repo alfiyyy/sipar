@@ -75,7 +75,7 @@
 			height: 80px;
 		}
 
-		@media (max-width: 848px) {
+		@media (max-width: 860px) {
 			.link-logo-sipar{
 				height: 70px;
 			}
@@ -269,21 +269,19 @@
 
 			<!-- top nav -->
 			<nav class="navbar navbar-expand-md navbar-light p-0" style="background-color: #fff; font-family: 'Montserrat', sans-serif;">
-				<div style="margin-inline: 8px; width: 100%;" class="container-fluid">
-					<center>
+				<div style="margin-inline: 8px" class="container-fluid justify-content-between">
 						<a class="navbar-brand p-0 m-0 link-logo-sipar" href="<?= site_url(); ?>">
 							<img class="logo-sipar" src="<?= favicon('logo'); ?>" alt="Logo" style="height: inherit;" />
 						</a>
-					</center>
 					<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
 						<span class="navbar-toggler-icon"></span>
 					</button>
-					<div class="collapse navbar-collapse" id="navbarNav">
+					<div class="collapse navbar-collapse justify-content-center" id="navbarNav">
 						<?php
 						// Load web menu.
 						$this->CI->load_menu(
 							$menu_group = 2,
-							$ul = 'class="navbar-nav ml-auto d-flex"',
+							$ul = 'class="navbar-nav d-flex"',
 							$ul_li = 'class="nav-item dropdown"',
 							$ul_li_a = 'class="nav-link"', // Change nav-link to text-dark for dark text color
 							$ul_li_a_ul = 'class="dropdown-menu"'
@@ -326,7 +324,7 @@
 			<a class="carousel-control-next" href="#headlines" role="button" data-slide="next"><span class="carousel-control-next-icon" aria-hidden="true"></span><span class="sr-only">Next</span></a>
 		</div>
 
-		<section class="col-md-12" style="background-color: white;">
+		<section class="col-md-12 py-3" style="background-color: white;">
 			<?php $this->CI->_layout($this->CI->__content_view); ?>
 		</section>
 

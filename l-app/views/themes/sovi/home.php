@@ -277,17 +277,25 @@ function getCategoryIcon($categoryName)
             const modalRightEdge = scrolls.getBoundingClientRect().right;
             const viewportRightEdge = window.innerWidth;
             const rightOffset = viewportRightEdge - modalRightEdge + 18;
-            if (window.innerWidth >= 992) {
+            if (window.innerWidth >= 992 && infoOffsetTop >= triggerOffset) {
 
-                if(infoOffsetTop >= triggerOffset){
-                    info.classList.add('position-fixed');
+                if (window.innerWidth < 1200 && window.innerWidth > 992 ) {
+                    info.style.width= "265.46px"
                     info.style.top = `200px`; // Adjust top offset as needed
                     info.style.right = `${rightOffset}px`; // Set right offset
-                    info.style.width = `${originalInfoWidth}px`;
-                    detail.style.width = `${originalDetailWidth}px`;
-                    detail.classList.remove('col-lg-8');
-                    detail.classList.add('col-md-12');
+                    
+                    detail.style.width = "531px"
+
+                    return
                 }
+
+                info.classList.add('position-fixed');
+                info.style.top = `200px`; // Adjust top offset as needed
+                info.style.right = `${rightOffset}px`; // Set right offset
+                info.style.width = `378.8px`;
+                detail.style.width = `757.6px`;
+                detail.classList.remove('col-lg-8');
+                detail.classList.add('col-md-12');
 
                 // info.classList.remove('position-fixed');
                 // info.style.top = "";
@@ -304,7 +312,7 @@ function getCategoryIcon($categoryName)
                 detail.style.width = "";
                 detail.classList.remove('col-md-12');
                 detail.classList.add('col-lg-8');
-                
+
             }
         });
 
@@ -317,25 +325,16 @@ function getCategoryIcon($categoryName)
             const viewportRightEdge = window.innerWidth;
             const rightOffset = viewportRightEdge - modalRightEdge + 18;
 
-            if (window.innerWidth >= 992) {
+            if (window.innerWidth >= 992 && infoOffsetTop >= triggerOffset) {
 
-                if (infoOffsetTop >= triggerOffset) {
-                    info.classList.add('position-fixed');
-                    info.style.top = `200px`; // Adjust top offset as needed
-                    info.style.right = `${rightOffset}px`; // Set right offset
-                    info.style.width = `${originalInfoWidth}px`;
-                    detail.style.width = `${originalDetailWidth}px`;
-                    detail.classList.remove('col-lg-8');
-                    detail.classList.add('col-md-12');
-                } else {
-                    info.classList.remove('position-fixed');
-                    info.style.top = "";
-                    info.style.right = "";
-                    info.style.width = "";
-                    detail.style.width = "";
-                    detail.classList.remove('col-md-12');
-                    detail.classList.add('col-lg-8');
-                }
+                info.classList.add('position-fixed');
+                info.style.top = `200px`; // Adjust top offset as needed
+                info.style.right = `${rightOffset}px`; // Set right offset
+                info.style.width = `${originalInfoWidth}px`;
+                detail.style.width = `${originalDetailWidth}px`;
+                detail.classList.remove('col-lg-8');
+                detail.classList.add('col-md-12');
+
             } else {
                 info.classList.remove('position-fixed');
                 info.style.top = "";

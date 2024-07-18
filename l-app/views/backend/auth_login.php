@@ -37,7 +37,7 @@
 		<nav class="navbar navbar-expand-sm navbar-light" style=" padding-block:20px;background-color: #fff; font-family: 'Montserrat', sans-serif;">
 			<div class="container">
 				<div></div>
-				<button class="navbar-toggler mr-5" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
 					<span class="navbar-toggler-icon"></span>
 				</button>
 				<div class="collapse navbar-collapse justify-content-center" id="navbarNav">

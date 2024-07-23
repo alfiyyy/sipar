@@ -52,8 +52,8 @@ class Pesan_kamar extends Backend_Controller {
 				$this->vars['tgl_in'] = $this->input->post('tgl_dari');
 				$this->vars['tgl_out'] = $this->input->post('tgl_sampai');
 			} else {
-				$this->vars['tgl_in'] = $tgl_in = date("Y-m-d");
-				$this->vars['tgl_out'] = $tgl_in = date("Y-m-d");
+				$this->vars['tgl_in'] = date("Y-m-d");
+				$this->vars['tgl_out'] = date("Y-m-d");
 			}
 
 			$query = $this->db->query('SELECT * FROM t_room
@@ -128,31 +128,32 @@ class Pesan_kamar extends Backend_Controller {
 						'overwrite'     => TRUE
 					));
 
+					// haris dikeluarkan dari do_upload agar masuk db
 					if ($this->upload->do_upload('fupload')) 
 					{
-						for ($x = 0; $x < $this->input->post('br_jml_hari'); $x++) {
-							if ($x == $this->input->post('br_jml_hari')) {
-								
-								break;
-							}
-							$data_isert = array(
-								'kategori_id' => xss_filter($this->input->post('kategori_id')),
-								'room_id' => xss_filter($this->input->post('room_id')),
-								'peserta_id' => xss_filter($this->input->post('peserta_id')),
-								'br_tanggal_in' => manipulasiTanggal($this->input->post('br_tanggal_in'), $x, 'days'),
-								'br_jml_hari' => '1',
-								'br_dokumen' => 'dokumen/'.$dokumen,
-								'penyelenggara_id' => $penyelenggara_id,
-								'created_at' => date('Y-m-d H:i:s'),
-							);
-							$this->booking_kamar_model->insert($data_isert);
-							//echo $data_isert;
-							
-
-						}
-						$this->cifire_alert->set($this->mod, 'info', 'Data has been successfully added');
-						redirect(admin_url($this->mod.'/pesan/'. $this->input->post('kategori_id')),'refresh');
 					}
+					for ($x = 0; $x < $this->input->post('br_jml_hari'); $x++) {
+						if ($x == $this->input->post('br_jml_hari')) {
+							
+							break;
+						}
+						$data_isert = array(
+							'kategori_id' => xss_filter($this->input->post('kategori_id')),
+							'room_id' => xss_filter($this->input->post('room_id')),
+							'peserta_id' => xss_filter($this->input->post('peserta_id')),
+							'br_tanggal_in' => manipulasiTanggal($this->input->post('br_tanggal_in'), $x, 'days'),
+							'br_jml_hari' => '1',
+							'br_dokumen' => 'dokumen/'.$dokumen,
+							'penyelenggara_id' => $penyelenggara_id,
+							'created_at' => date('Y-m-d H:i:s'),
+						);
+						$this->booking_kamar_model->insert($data_isert);
+						//echo $data_isert;
+						
+
+					}
+					$this->cifire_alert->set($this->mod, 'info', 'Data has been successfully added');
+					redirect(admin_url($this->mod.'/pesan/'. $this->input->post('kategori_id')),'refresh');
 				}
 			}
 			else

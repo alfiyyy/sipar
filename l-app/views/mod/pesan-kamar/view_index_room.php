@@ -30,9 +30,9 @@
             <div class="card-body">
 
                 <!-- input datetime | Br Tanggal In -->
-                <div class="row">
+                <div class="row align-items-center">
                     <label class="col-form-label col-md-1">Dari</label>
-                    <div class="col-md-5">
+                    <div class="col-md-4">
                         <div class="input-group" style="max-width:250px;">
                             <input id="date-picker1" type="text" name="tgl_dari" value="<?= $tgl_in ?>" class="form-control" placeholder="yyyy-mm-dd" required/>
                             <div class="input-group-append">
@@ -40,7 +40,7 @@
                             </div>
                         </div>
                     </div>
-                    <label class="col-form-label col-md-1">Sampai</label>
+                    <label class="col-form-label col-md-2">Sampai</label>
                     <div class="col-md-5">
                         <div class="input-group" style="max-width:250px;">
                             <input id="date-picker2" type="text" name="tgl_sampai" value="<?= $tgl_out ?>" class="form-control" placeholder="yyyy-mm-dd" required/>
@@ -76,15 +76,20 @@
                                 $warna = 'danger';
                             }
                         }
-                        //var_dump($result_trx);
+                        // var_dump($tgl_in);
+                        // var_dump($tgl_out);
+                        // var_dump($result_trx);
                         ?>
-                        <div class="col-sm-6 col-md-3 mb-3">
+                        <div class="col-sm-6 col-md-4 mb-3">
                             <div class="card card-body">
                                 <div class="media">
-                                <a href="#" <?php if($warna=="danger")  {} elseif($warna=="success") { ?> onclick="onModalBook(<?= $row['room_id'] ?>)" <?php } else { } ?> data-toggle="modal"><div class="wd-40 wd-md-50 ht-40 ht-md-50 bg-<?= $warna ?> tx-white mg-r-10 mg-md-r-10 d-flex align-items-center justify-content-center rounded"><i class="fa fa-bed"></i></div></a>
+                                    <!-- danger (merah) = tidak bisa dipesan karna kamar sudah di book dan disetujui -->
+                                    <!-- primary (biru) = sudah ada yang book tapi belum disetujui (?) -->
+                                    <!-- success (hijau) = belom ada yang book (?) -->
+                                <a href="#" <?php if($warna=="danger")  { ?> style="pointer-events: none;" <?php } elseif($warna=="success") { ?> onclick="onModalBook(<?= $row['room_id'] ?>)" <?php } else { ?> style="pointer-events: none;" <?php } ?> data-toggle="modal"><div class="wd-40 wd-md-50 ht-40 ht-md-50 bg-<?= $warna ?> tx-white mg-r-10 mg-md-r-10 d-flex align-items-center justify-content-center rounded"><i class="fa fa-bed"></i></div></a>
                                     <div class="media-body">
                                         <h6 class="tx-sans tx-uppercase tx-10 tx-spacing-1 tx-color-03 tx-semibold tx-nowrap mg-b-5 mg-md-b-8"><?= $row['room_nama'] ?></h6>
-                                        <h4 class="tx-20 tx-sm-18 tx-md-20 tx-normal tx-rubik mg-b-0"><?= $row['room_nomor'] ?></h4>
+                                        <h4 class="tx-20 tx-sm-18 tx-md-20 tx-normal tx-rubik mg-b-0">No <?= $row['room_nomor'] ?></h4>
                                     </div>
                                 </div>
                             </div>
@@ -164,7 +169,7 @@
                             <label>Tanggal Book</label>
                             <div>
                                 <div class="input-group" style="max-width:250px;">
-                                    <input id="date-picker" type="text" name="br_tanggal_in" value="<?=date('Y-m-d');?>" class="form-control" placeholder="yyyy-mm-dd" required/>
+                                    <input id="date-picker" type="text" name="br_tanggal_in" value="<?=$tgl_in?>" class="form-control" placeholder="yyyy-mm-dd" required/>
                                     <div class="input-group-append">
                                         <span class="input-group-text"><i class="fa fa-calendar"></i></span>
                                     </div>
@@ -184,13 +189,13 @@
 
                 <!-- Photo -->
 
-                <div class="form-group">
+                <!-- <div class="form-group">
                     <label>Dokumen</label>
                     <div class="custom-file">
                         <input type="file" class="custom-file-input" id="upload-image" name="fupload"/>
                         <label class="custom-file-label" for="upload-image" browse-label="Buka File">Buka File</label>
                     </div>
-                </div>
+                </div> -->
 		
 				<!--/ Photo -->
 

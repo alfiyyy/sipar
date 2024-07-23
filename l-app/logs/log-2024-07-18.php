@@ -11,3 +11,7 @@ FROM `t_setting`
 WHERE `options` = 'page_item'
 ERROR - 2024-07-18 10:23:28 --> Severity: error --> Exception: Call to undefined function getCategoryIcon() C:\xampp7\htdocs\sipar\l-app\views\themes\sovi\home.php 147
 ERROR - 2024-07-18 10:23:29 --> Severity: error --> Exception: Call to undefined function getCategoryIcon() C:\xampp7\htdocs\sipar\l-app\views\themes\sovi\home.php 147
+ERROR - 2024-07-18 15:26:15 --> Severity: Notice --> Undefined variable: tgl_in C:\xampp7\htdocs\sipar\l-app\views\mod\pesan-kamar\view_index_room.php 37
+ERROR - 2024-07-18 15:26:15 --> Severity: Notice --> Undefined variable: tgl_out C:\xampp7\htdocs\sipar\l-app\views\mod\pesan-kamar\view_index_room.php 46
+ERROR - 2024-07-18 15:26:15 --> Severity: Notice --> Undefined variable: tgl_in C:\xampp7\htdocs\sipar\l-app\views\mod\pesan-kamar\view_index_room.php 68
+ERROR - 2024-07-18 15:26:15 --> Severity: Notice --> Undefined variable: tgl_out C:\xampp7\htdocs\sipar\l-app\views\mod\pesan-kamar\view_index_room.php 68

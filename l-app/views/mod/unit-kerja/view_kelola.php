@@ -43,9 +43,9 @@
                         <div class="box-body">
 							<div class="row">
 								<?php foreach ($content_kamar as $row) { ?>
-								<div id="kamar-item<?=$row->room_id;?>" class="col-sm-6 col-md-4 mb-4">
-									<div class="card card-body">
-										<div class="btn-group mt-1 gbhs2" style="">
+								<div id="kamar-item<?=$row->room_id;?>" class="col-sm-6 col-md-6 mb-4">
+									<div style="padding-inline-end: 35px;" class="card card-body">
+										<div class="btn-group mt-1 gbhs2" style="position: absolute; top: 0; right: 9px;">
 											<button class="btn btn-xs btn-danger delete_gallery_kamar" data-id="<?=encrypt($row->room_id);?>"><i class="fa fa-times"></i></button>
 										</div>
 										<div class="media">

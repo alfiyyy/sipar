@@ -43,9 +43,9 @@
                         <div class="box-body">
 							<div class="row">
 								<?php foreach ($content_kamar as $row) { ?>
-								<div id="meeting-item<?=$row->smr_id;?>" class="col-sm-6 col-md-4 mb-4">
-									<div class="card card-body">
-										<div class="btn-group mt-1 gbhs2" style="">
+								<div id="meeting-item<?=$row->smr_id;?>" class="col-sm-6 col-md-6 mb-4">
+									<div style="padding-inline-end: 35px;" class="card card-body">
+										<div class="btn-group mt-1 gbhs2" style="position: absolute; top: 0; right: 9px;">
 											<button class="btn btn-xs btn-danger delete_gambar_meeting" data-id="<?=encrypt($row->smr_id);?>"><i class="fa fa-times"></i></button>
 										</div>
 										<div class="media">
@@ -225,7 +225,7 @@
 											$src_imgs = post_images($res['smrg_image'], '', TRUE);
 											$thumb = post_images($res['smrg_image'], 'thumb', TRUE);
 									?>
-									<div id="gallery-item<?=$res['smrg_id'];?>" class="col-sm-6 col-md-4 col-lg-3 mt-3 gbhs">
+									<div id="gallery-item<?=$res['smrg_id'];?>" class="col-sm-6 col-md-6 col-lg-3 mt-3 gbhs">
 										<div class="card item-gal">
 											<div class="pd-6 text-center">
 												<style type="text/css">.gbhs2{position: absolute; right:6px; top: 0; } </style>

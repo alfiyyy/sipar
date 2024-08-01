@@ -180,13 +180,13 @@
                     </div>
                 </div>
                 
-                <div class="form-group">
+                <!-- <div class="form-group">
                     <label>Dokumen</label>
                     <div class="custom-file">
                         <input type="file" class="custom-file-input" id="upload-image" name="fupload"/>
                         <label class="custom-file-label" for="upload-image" browse-label="Buka File">Buka File</label>
                     </div>
-                </div>
+                </div> -->
                 
                 <div id="footerbook"></div>
                 

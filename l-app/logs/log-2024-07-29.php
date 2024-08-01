@@ -105,3 +105,18 @@ ERROR - 2024-07-29 13:52:45 --> Severity: Notice --> Undefined variable: id_data
 ERROR - 2024-07-29 13:52:45 --> Severity: Notice --> Undefined variable: id_data C:\xampp7\htdocs\sipar\l-app\controllers\l-admin\Kelola_smart_meeting.php 87
 ERROR - 2024-07-29 13:52:45 --> Severity: Notice --> Undefined variable: id_data C:\xampp7\htdocs\sipar\l-app\controllers\l-admin\Kelola_smart_meeting.php 88
 ERROR - 2024-07-29 13:52:45 --> Severity: Notice --> Undefined variable: unker C:\xampp7\htdocs\sipar\l-app\controllers\l-admin\Kelola_smart_meeting.php 89
+ERROR - 2024-07-29 13:57:54 --> Severity: Notice --> Undefined variable: id_data C:\xampp7\htdocs\sipar\l-app\controllers\l-admin\Kelola_smart_meeting.php 84
+ERROR - 2024-07-29 13:57:54 --> Severity: Notice --> Undefined variable: id_data C:\xampp7\htdocs\sipar\l-app\controllers\l-admin\Kelola_smart_meeting.php 85
+ERROR - 2024-07-29 13:57:54 --> Severity: Notice --> Undefined variable: id_data C:\xampp7\htdocs\sipar\l-app\controllers\l-admin\Kelola_smart_meeting.php 86
+ERROR - 2024-07-29 13:57:54 --> Severity: Notice --> Undefined variable: id_data C:\xampp7\htdocs\sipar\l-app\controllers\l-admin\Kelola_smart_meeting.php 87
+ERROR - 2024-07-29 13:57:54 --> Severity: Notice --> Undefined variable: id_data C:\xampp7\htdocs\sipar\l-app\controllers\l-admin\Kelola_smart_meeting.php 88
+ERROR - 2024-07-29 13:57:54 --> Severity: Notice --> Undefined variable: unker C:\xampp7\htdocs\sipar\l-app\controllers\l-admin\Kelola_smart_meeting.php 89
+ERROR - 2024-07-29 13:58:08 --> Severity: Notice --> Undefined variable: id_data C:\xampp7\htdocs\sipar\l-app\controllers\l-admin\Booking_smr.php 54
+ERROR - 2024-07-29 13:58:08 --> Query error: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '' at line 2 - Invalid query: SELECT * FROM t_smr
+			WHERE unker_id=
+ERROR - 2024-07-29 13:58:12 --> Severity: Notice --> Undefined variable: id_data C:\xampp7\htdocs\sipar\l-app\controllers\l-admin\Kelola_smart_meeting.php 84
+ERROR - 2024-07-29 13:58:12 --> Severity: Notice --> Undefined variable: id_data C:\xampp7\htdocs\sipar\l-app\controllers\l-admin\Kelola_smart_meeting.php 85
+ERROR - 2024-07-29 13:58:12 --> Severity: Notice --> Undefined variable: id_data C:\xampp7\htdocs\sipar\l-app\controllers\l-admin\Kelola_smart_meeting.php 86
+ERROR - 2024-07-29 13:58:12 --> Severity: Notice --> Undefined variable: id_data C:\xampp7\htdocs\sipar\l-app\controllers\l-admin\Kelola_smart_meeting.php 87
+ERROR - 2024-07-29 13:58:12 --> Severity: Notice --> Undefined variable: id_data C:\xampp7\htdocs\sipar\l-app\controllers\l-admin\Kelola_smart_meeting.php 88
+ERROR - 2024-07-29 13:58:12 --> Severity: Notice --> Undefined variable: unker C:\xampp7\htdocs\sipar\l-app\controllers\l-admin\Kelola_smart_meeting.php 89

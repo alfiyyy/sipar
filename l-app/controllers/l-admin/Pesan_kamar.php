@@ -255,26 +255,26 @@ class Pesan_kamar extends Backend_Controller {
 
 					if ($this->upload->do_upload('fupload')) 
 					{
-						for ($x = 0; $x < $this->input->post('bs_jml_hari'); $x++) {
-							if ($x == $this->input->post('bs_jml_hari')) {
-								
-								break;
-							}
-							$data_isert = array(
-								'unker_id' => xss_filter($this->input->post('unker_id')),
-								'smr_id' => xss_filter($this->input->post('smr_id')),
-								'peserta_id' => xss_filter($this->input->post('peserta_id')),
-								'bs_tanggal_in' => manipulasiTanggal($this->input->post('bs_tanggal_in'), $x, 'days'),
-								'bs_jml_hari' => '1',
-								'bs_dokumen' => 'dokumen/'.$dokumen,
-								'penyelenggara_id' => $penyelenggara_id,
-								'created_at' => date('Y-m-d H:i:s'),
-							);
-							$this->booking_smr_model->insert($data_isert);
-						}
-						$this->cifire_alert->set($this->mod, 'info', 'Data has been successfully added');
-						redirect(admin_url($this->mod.'/pesan-smr/'. $this->input->post('unker_id')),'refresh');
 					}
+					for ($x = 0; $x < $this->input->post('bs_jml_hari'); $x++) {
+						if ($x == $this->input->post('bs_jml_hari')) {
+							
+							break;
+						}
+						$data_isert = array(
+							'unker_id' => xss_filter($this->input->post('unker_id')),
+							'smr_id' => xss_filter($this->input->post('smr_id')),
+							'peserta_id' => xss_filter($this->input->post('peserta_id')),
+							'bs_tanggal_in' => manipulasiTanggal($this->input->post('bs_tanggal_in'), $x, 'days'),
+							'bs_jml_hari' => '1',
+							'bs_dokumen' => 'dokumen/'.$dokumen,
+							'penyelenggara_id' => $penyelenggara_id,
+							'created_at' => date('Y-m-d H:i:s'),
+						);
+						$this->booking_smr_model->insert($data_isert);
+					}
+					$this->cifire_alert->set($this->mod, 'info', 'Data has been successfully added');
+					redirect(admin_url($this->mod.'/pesan-smr/'. $this->input->post('unker_id')),'refresh');
 					
 				}
 			}
@@ -377,29 +377,29 @@ class Pesan_kamar extends Backend_Controller {
 
 					if ($this->upload->do_upload('fupload')) 
 					{
-						for ($x = 0; $x < $this->input->post('bc_jml_hari'); $x++) {
-							if ($x == $this->input->post('bc_jml_hari')) {
-								
-								break;
-							}
-							$data_isert = array(
-								'unker_id' => xss_filter($this->input->post('unker_id')),
-								'csr_id' => xss_filter($this->input->post('csr_id')),
-								'peserta_id' => xss_filter($this->input->post('peserta_id')),
-								'bc_tanggal_in' => manipulasiTanggal($this->input->post('bc_tanggal_in'), $x, 'days'),
-								'bc_jml_hari' => '1',
-								'bc_dokumen' => 'dokumen/'.$dokumen,
-								'penyelenggara_id' => $penyelenggara_id,
-								'created_at' => date('Y-m-d H:i:s'),
-							);
-							$this->booking_csr_model->insert($data_isert);
-							//echo $data_isert;
-							
-	
-						}
-						$this->cifire_alert->set($this->mod, 'info', 'Data has been successfully added');
-						redirect(admin_url($this->mod.'/pesan-csr/'. $this->input->post('unker_id')),'refresh');
 					}
+					for ($x = 0; $x < $this->input->post('bc_jml_hari'); $x++) {
+						if ($x == $this->input->post('bc_jml_hari')) {
+							
+							break;
+						}
+						$data_isert = array(
+							'unker_id' => xss_filter($this->input->post('unker_id')),
+							'csr_id' => xss_filter($this->input->post('csr_id')),
+							'peserta_id' => xss_filter($this->input->post('peserta_id')),
+							'bc_tanggal_in' => manipulasiTanggal($this->input->post('bc_tanggal_in'), $x, 'days'),
+							'bc_jml_hari' => '1',
+							'bc_dokumen' => 'dokumen/'.$dokumen,
+							'penyelenggara_id' => $penyelenggara_id,
+							'created_at' => date('Y-m-d H:i:s'),
+						);
+						$this->booking_csr_model->insert($data_isert);
+						//echo $data_isert;
+						
+
+					}
+					$this->cifire_alert->set($this->mod, 'info', 'Data has been successfully added');
+					redirect(admin_url($this->mod.'/pesan-csr/'. $this->input->post('unker_id')),'refresh');
 					
 				}
 			}

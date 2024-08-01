@@ -351,7 +351,7 @@ class User extends Backend_Controller {
 					{
 						$in_pass1 = $this->input->post('input_password');
 						$in_pass2 = $datas['password'];
-						$password = empty($in_pass1) ? $in_pass2 : encrypt($in_pass1);
+						$password = empty($in_pass1) ? $in_pass2 : password_hash($in_pass1, PASSWORD_BCRYPT);
 						
 						if ($in_pass2 != null) {
 							$dataUpdate = array(

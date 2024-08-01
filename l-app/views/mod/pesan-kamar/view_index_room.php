@@ -86,7 +86,7 @@
                                     <!-- danger (merah) = tidak bisa dipesan karna kamar sudah di book dan disetujui -->
                                     <!-- primary (biru) = sudah ada yang book tapi belum disetujui (?) -->
                                     <!-- success (hijau) = belom ada yang book (?) -->
-                                <a href="#" <?php if($warna=="danger")  { ?> style="pointer-events: none;" <?php } elseif($warna=="success") { ?> onclick="onModalBook(<?= $row['room_id'] ?>)" <?php } else { ?> style="pointer-events: none;" <?php } ?> data-toggle="modal"><div class="wd-40 wd-md-50 ht-40 ht-md-50 bg-<?= $warna ?> tx-white mg-r-10 mg-md-r-10 d-flex align-items-center justify-content-center rounded"><i class="fa fa-bed"></i></div></a>
+                                <a href="#" <?php if($warna=="danger")  { ?> style="pointer-events: none;" <?php } elseif($warna=="success"||$warna=="primary") { ?> onclick="onModalBook(<?= $row['room_id'] ?>)" <?php } else { ?><?php } ?> data-toggle="modal"><div class="wd-40 wd-md-50 ht-40 ht-md-50 bg-<?= $warna ?> tx-white mg-r-10 mg-md-r-10 d-flex align-items-center justify-content-center rounded"><i class="fa fa-bed"></i></div></a>
                                     <div class="media-body">
                                         <h6 class="tx-sans tx-uppercase tx-10 tx-spacing-1 tx-color-03 tx-semibold tx-nowrap mg-b-5 mg-md-b-8"><?= $row['room_nama'] ?></h6>
                                         <h4 class="tx-20 tx-sm-18 tx-md-20 tx-normal tx-rubik mg-b-0">No <?= $row['room_nomor'] ?></h4>

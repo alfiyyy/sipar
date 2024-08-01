@@ -77,7 +77,7 @@
 	<!-- Page Container Start -->
 	<div class="page-container">
 		<!-- Page Sidebar Start -->
-		<div class="page-sidebar">
+		<div  class="page-sidebar">
 			<div class="logo">
 				<a href="#" class="logo-img">
 					

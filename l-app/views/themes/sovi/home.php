@@ -141,98 +141,273 @@ function getCategoryIcon($categoryName)
     </div>
 
     <!-- Search Form -->
-    <form method="get" action="" style="padding: 2rem;" class="input-group" autocomplete="off">
+    <!-- <form method="get" action="" style="padding: 2rem;" class="input-group" autocomplete="off">
         <input type="search" name="search" class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" value="<?= isset($_GET['search']) ? $_GET['search'] : '' ?>" />
         <button type="submit" class="btn btn-outline-primary" data-mdb-ripple-init>Search</button>
-    </form>
+    </form> -->
 
-    <?php
-    // Capture the search term
-    $searchTerm = isset($_GET['search']) ? $_GET['search'] : '';
 
-    // Fetch data based on the search term
-    $post1b = $this->CI->index_model->get_unker_by_search($searchTerm, '', 'result');
-
-    foreach ($post1b as $res_post1b) :
-        $getDataKategori = $this->CI->index_model->get_post_lmit_by_unker($res_post1b['unker_id'], [10, 0]);
-        $telpUnker = $this->CI->index_model->get_unker_by('unker_id', $res_post1b['unker_id'], 'row');
-    ?>
-        <div class="col-md-6 mt-3 mb-3">
-            <div class="card" style="background: #fff;color: #636262; box-shadow: rgba(0, 0, 0, 0.20) 0px 0px 15px; min-height: 200px;">
-                <div class="row">
-                    <div class="col-xl-6">
-                        <img class="card-img-top" src="<?= post_images($res_post1b['unker_image'], 'small', TRUE); ?>" alt="Card image cap" style="height: 220px; border-radius: 15px; transform: scale(0.95);">
+    <!-- Ruang Lavender -->
+    <div class="col-md-6 mt-3 mb-3">
+        <div class="card" style="background: #fff;color: #636262; box-shadow: rgba(0, 0, 0, 0.20) 0px 0px 15px; min-height: 200px;">
+            <div class="row">
+                <div id="carauselRuangSedapMalam" class="carousel slide col-xl-6" data-ride="carousel">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img class="d-block w-100" src="http://localhost/sipar/l-content/uploads/Ruang_lavender/IMG_9987.JPG" alt="Card image cap" style="height: 220px; border-radius: 15px; transform: scale(0.95);">
+                        </div>
+                        <!-- Add more carousel items here if needed -->
+                        <div class="carousel-item">
+                            <img class="d-block w-100" src="http://localhost/sipar/l-content/uploads/Ruang_lavender/IMG_9987.JPG" alt="Card image cap" style="height: 220px; border-radius: 15px; transform: scale(0.95);">
+                        </div>
                     </div>
-                    <div class="col-xl-6 d-flex flex-column justify-content-center py-3">
-                        <?php if ($getDataKategori->num_rows() > 0) : ?>
-                            <p style="margin-inline: 20px; color: black; font-weight: bold; font-family: Montserrat">
-                                Tersedia <?= $getDataKategori->num_rows(); ?> pilihan ruangan
-                            </p>
-                            <?php if ($getDataKategori->num_rows() > 2) : ?>
-                                <div class="p-2" style="height: 115px; margin-inline: 20px; border: 1px solid #dfdfdf; overflow: auto">
-                                    <ul class="list-group">
-                                        <?php foreach ($getDataKategori->result_array() as $rowKategori) : ?>
-                                            <a style="font-family: 'Open Sans',sans-seriff;" href="#!" data-id="<?= $rowKategori['kategori_id']; ?>" data-toggle="modal" data-target=".bd-example-modal-lg" class="list-group-item list-group-item-action actionsBed">
-                                                <span class="mr-1">
-                                                    <?php getCategoryIcon($rowKategori['kategori_nama']); ?>
-                                                </span>
-                                                <?= $rowKategori['kategori_nama']; ?>
-                                                <span class="float-right" data-toggle="tooltip" data-placement="top" title="view">
-                                                    <i class="fa fa-eye" aria-hidden="true"></i>
-                                                </span>
-                                            </a>
-                                        <?php endforeach ?>
-                                    </ul>
-                                </div>
-                                <div>
-                                    <p style="margin: 0; margin-top: 10px;" class="">
-                                        <span style="margin-inline:20px" class="mr-1" data-toggle="tooltip" data-placement="top" title="Nomor Kontak">
-                                            <i class="fa fa-phone"></i>
-                                        </span>
-                                        <span style="font-family: 'Open Sans',sans-seriff;">
-                                            <?= $telpUnker['unker_telp'] ?>
-                                        </span>
-                                    </p>
-                                </div>
-                            <?php else : ?>
-                                <div class="p-2" style="height: 115px; margin-inline: 20px; border: 1px solid #dfdfdf;">
-                                    <div class="list-group">
-                                        <?php foreach ($getDataKategori->result_array() as $rowKategori) : ?>
-                                            <a style="font-family: 'Open Sans',sans-seriff;" href="#!" data-id="<?= $rowKategori['kategori_id']; ?>" data-toggle="modal" data-target=".bd-example-modal-lg" class="list-group-item list-group-item-action actionsBed">
-                                                <span class="mr-1">
-                                                    <?php getCategoryIcon($rowKategori['kategori_nama']); ?>
-                                                </span>
-                                                <?= $rowKategori['kategori_nama']; ?>
-                                                <span class="float-right" data-toggle="tooltip" data-placement="top" title="view">
-                                                    <i class="fa fa-eye" aria-hidden="true"></i>
-                                                </span>
-                                            </a>
-                                        <?php endforeach ?>
-                                    </div>
-                                </div>
-                                <div>
-                                    <p style="margin: 0; margin-top: 10px;" class="">
-                                        <span style="margin-inline:20px" class="mr-1" data-toggle="tooltip" data-placement="top" title="Nomor Kontak">
-                                            <i class="fa fa-phone"></i>
-                                        </span>
-                                        <span style="font-family: 'Open Sans',sans-seriff;">
-                                            <?= $telpUnker['unker_telp'] ?>
-                                        </span>
-                                    </p>
-                                </div>
-                            <?php endif; ?>
-                        <?php else : ?>
-                            <div class="p-2">
-                                <div style="padding: 10px; font-weight: 700; text-align: center; background-color: #eae9e9; border-radius: 10px; font-family:'Montserrat'">
-                                    Saat ini belum <br> menyediakan pilihan kamar
-                                </div>
-                            </div>
-                        <?php endif; ?>
+                    <a class="carousel-control-prev" href="#carauselRuangSedapMalam" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="carousel-control-next" href="#carauselRuangSedapMalam" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                </div>
+                <div class="col-xl-6 d-flex flex-column justify-content-center py-3">
+
+                    <p style="margin-inline: 20px; color: black; font-weight: bold; font-family: Montserrat">
+
+                    </p>
+                    <div class="p-2" style="">
+                        <h4 style="font-family: Montserrat; color: black; margin: 0;">Ruang Lavender</h4>
+                    </div>
+                    <div>
+                        <p style="margin: 0; margin-top: 10px;" class="">
+                            <a href="/sipar/daftar"><button type="button" class="btn btn-success">Pesan</button></a>
+                            <span style="font-family: 'Open Sans',sans-seriff;">
+
+                            </span>
+                        </p>
                     </div>
                 </div>
             </div>
         </div>
-    <?php endforeach ?>
+    </div>
+    <!-- Ruang Serbaguna Lt.3 -->
+    <div class="col-md-6 mt-3 mb-3">
+        <div class="card" style="background: #fff;color: #636262; box-shadow: rgba(0, 0, 0, 0.20) 0px 0px 15px; min-height: 200px;">
+            <div class="row">
+            <div id="carauselRuangSerbaguna" class="carousel slide col-xl-6" data-ride="carousel">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img class="d-block w-100" src="http://localhost/sipar/l-content/uploads/Ruang_serbaguna_lt_3/IMG_0314.JPG" alt="Card image cap" style="height: 220px; border-radius: 15px; transform: scale(0.95);">
+                        </div>
+                    </div>
+                    <a class="carousel-control-prev" href="#carauselRuangSerbaguna" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="carousel-control-next" href="#carauselRuangSerbaguna" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                </div>
+                <div class="col-xl-6 d-flex flex-column justify-content-center py-3">
+
+                    <p style="margin-inline: 20px; color: black; font-weight: bold; font-family: Montserrat">
+
+                    </p>
+                    <div class="p-2" style="">
+                        <h4 style="font-family: Montserrat; color: black; margin: 0;">Ruang Sebaguna Lt.3</h4>
+                    </div>
+                    <div>
+                        <p style="margin: 0; margin-top: 10px;" class="">
+                            <a href="/sipar/daftar"><button type="button" class="btn btn-success">Pesan</button></a>
+                            <span style="font-family: 'Open Sans',sans-seriff;">
+
+                            </span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Ruang Sedap Malam Lt.4 -->
+    <div class="col-md-6 mt-3 mb-3">
+        <div class="card" style="background: #fff;color: #636262; box-shadow: rgba(0, 0, 0, 0.20) 0px 0px 15px; min-height: 200px;">
+            <div class="row">
+            <div id="carouselRuangSedapMalam" class="carousel slide col-xl-6" data-ride="carousel">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img class="d-block w-100" src="http://localhost/sipar/l-content/uploads/Ruang_sedap_malam_lt_4/IMG_0373.JPG" alt="Card image cap" style="height: 220px; border-radius: 15px; transform: scale(0.95);">
+                        </div>
+                        <!-- Add more carousel items here if needed -->
+                        <div class="carousel-item">
+                            <img class="d-block w-100" src="http://localhost/sipar/l-content/uploads/Ruang_sedap_malam_lt_4/IMG_0378.JPG" alt="Card image cap" style="height: 220px; border-radius: 15px; transform: scale(0.95);">
+                        </div>
+                    </div>
+                    <a class="carousel-control-prev" href="#carouselRuangSedapMalam" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="carousel-control-next" href="#carouselRuangSedapMalam" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                </div>
+                <div class="col-xl-6 d-flex flex-column justify-content-center py-3">
+
+                    <p style="margin-inline: 20px; color: black; font-weight: bold; font-family: Montserrat">
+
+                    </p>
+                    <div class="p-2" style="">
+                        <h4 style="font-family: Montserrat; color: black; margin: 0;">Ruang Sedap Malam Lt.4</h4>
+                    </div>
+                    <div>
+                        <p style="margin: 0; margin-top: 10px;" class="">
+                            <a href="/sipar/daftar"><button type="button" class="btn btn-success">Pesan</button></a>
+                            <span style="font-family: 'Open Sans',sans-seriff;">
+
+                            </span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Ruang Teratai Lt.4 -->
+    <div class="col-md-6 mt-3 mb-3">
+        <div class="card" style="background: #fff;color: #636262; box-shadow: rgba(0, 0, 0, 0.20) 0px 0px 15px; min-height: 200px;">
+            <div class="row">
+            <div id="carouselRuangTeratai" class="carousel slide col-xl-6" data-ride="carousel">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img class="d-block w-100" src="http://localhost/sipar/l-content/uploads/Ruang_teratai_lt_4/IMG_0019.JPG" alt="Card image cap" style="height: 220px; border-radius: 15px; transform: scale(0.95);">
+                        </div>
+                        <!-- Add more carousel items here if needed -->
+                        <div class="carousel-item">
+                            <img class="d-block w-100" src="http://localhost/sipar/l-content/uploads/Ruang_teratai_lt_4/IMG_0399.JPG" alt="Card image cap" style="height: 220px; border-radius: 15px; transform: scale(0.95);">
+                        </div>
+                    </div>
+                    <a class="carousel-control-prev" href="#carouselRuangTeratai" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="carousel-control-next" href="#carouselRuangTeratai" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                </div>
+                <div class="col-xl-6 d-flex flex-column justify-content-center py-3">
+
+                    <p style="margin-inline: 20px; color: black; font-weight: bold; font-family: Montserrat">
+
+                    </p>
+                    <div class="p-2" style="">
+                        <h4 style="font-family: Montserrat; color: black; margin: 0;">Ruang Teratai Lt.4</h4>
+                    </div>
+                    <div>
+                        <p style="margin: 0; margin-top: 10px;" class="">
+                            <a href="/sipar/daftar"><button type="button" class="btn btn-success">Pesan</button></a>
+                            <span style="font-family: 'Open Sans',sans-seriff;">
+
+                            </span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Ruang Edelweis Lt.1 -->
+    <div class="col-md-6 mt-3 mb-3">
+        <div class="card" style="background: #fff;color: #636262; box-shadow: rgba(0, 0, 0, 0.20) 0px 0px 15px; min-height: 200px;">
+            <div class="row">
+            <div id="carouselRuangEdelweis" class="carousel slide col-xl-6" data-ride="carousel">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img class="d-block w-100" src="http://localhost/sipar/l-content/uploads/Ruang_edelweis_lt_1/IMG_0031.JPG" alt="Card image cap" style="height: 220px; border-radius: 15px; transform: scale(0.95);">
+                        </div>
+                        <!-- Add more carousel items here if needed -->
+                        <div class="carousel-item">
+                            <img class="d-block w-100" src="http://localhost/sipar/l-content/uploads/Ruang_edelweis_lt_1/IMG_0685.JPG" alt="Card image cap" style="height: 220px; border-radius: 15px; transform: scale(0.95);">
+                        </div>
+                    </div>
+                    <a class="carousel-control-prev" href="#carouselRuangEdelweis" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="carousel-control-next" href="#carouselRuangEdelweis" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                </div>
+                <div class="col-xl-6 d-flex flex-column justify-content-center py-3">
+
+                    <p style="margin-inline: 20px; color: black; font-weight: bold; font-family: Montserrat">
+
+                    </p>
+                    <div class="p-2" style="">
+                        <h4 style="font-family: Montserrat; color: black; margin: 0;">Ruang Edelweis Lt.1</h4>
+                    </div>
+                    <div>
+                        <p style="margin: 0; margin-top: 10px;" class="">
+                            <a href="/sipar/daftar"><button type="button" class="btn btn-success">Pesan</button></a>
+                            <span style="font-family: 'Open Sans',sans-seriff;">
+
+                            </span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Kamar Asrama -->
+    <div class="col-md-6 mt-3 mb-3">
+        <div class="card" style="background: #fff;color: #636262; box-shadow: rgba(0, 0, 0, 0.20) 0px 0px 15px; min-height: 200px;">
+            <div class="row">
+            <div id="carouselKamarAsrama" class="carousel slide col-xl-6" data-ride="carousel">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img class="d-block w-100" src="http://localhost/sipar/l-content/uploads/Kamar_asrama/IMG_0657.JPG" alt="Card image cap" style="height: 220px; border-radius: 15px; transform: scale(0.95);">
+                        </div>
+                        <div class="carousel-item">
+                            <img class="d-block w-100" src="http://localhost/sipar/l-content/uploads/Kamar_asrama/IMG_0659.JPG" alt="Card image cap" style="height: 220px; border-radius: 15px; transform: scale(0.95);">
+                        </div>
+                        <div class="carousel-item">
+                            <img class="d-block w-100" src="http://localhost/sipar/l-content/uploads/Kamar_asrama/IMG_0661.JPG" alt="Card image cap" style="height: 220px; border-radius: 15px; transform: scale(0.95);">
+                        </div>
+                        <!-- Add more carousel items here if needed -->
+                        <div class="carousel-item">
+                            <img class="d-block w-100" src="http://localhost/sipar/l-content/uploads/Kamar_asrama/IMG_0665.JPG" alt="Card image cap" style="height: 220px; border-radius: 15px; transform: scale(0.95);">
+                        </div>
+                    </div>
+                    <a class="carousel-control-prev" href="#carouselKamarAsrama" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="carousel-control-next" href="#carouselKamarAsrama" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                </div>
+                <div class="col-xl-6 d-flex flex-column justify-content-center py-3">
+
+                    <p style="margin-inline: 20px; color: black; font-weight: bold; font-family: Montserrat">
+
+                    </p>
+                    <div class="p-2" style="">
+                        <h4 style="font-family: Montserrat; color: black; margin: 0;">Kamar Asrama</h4>
+                    </div>
+                    <div>
+                        <p style="margin: 0; margin-top: 10px;" class="">
+                            <a href="/sipar/daftar"><button type="button" class="btn btn-success">Pesan</button></a>
+                            <span style="font-family: 'Open Sans',sans-seriff;">
+
+                            </span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
 
 </div>
 <!--/ left content -->
@@ -279,11 +454,11 @@ function getCategoryIcon($categoryName)
             const rightOffset = viewportRightEdge - modalRightEdge + 18;
             if (window.innerWidth >= 992 && infoOffsetTop >= triggerOffset) {
 
-                if (window.innerWidth < 1200 && window.innerWidth > 992 ) {
-                    info.style.width= "265.46px"
+                if (window.innerWidth < 1200 && window.innerWidth > 992) {
+                    info.style.width = "265.46px"
                     info.style.top = `200px`; // Adjust top offset as needed
                     info.style.right = `${rightOffset}px`; // Set right offset
-                    
+
                     detail.style.width = "531px"
 
                     return

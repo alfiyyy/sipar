@@ -81,7 +81,10 @@
                 <input id="password" type="password" name="<?= $input_pwd; ?>" class="form-control" />
             </div>
             <button type="submit" class="btn btn-brand btn-block mg-t-20"><?= lang_line('button_login') ?></button>
-            <div class="text-center mg-t-20">
+            <div class="text-center mg-t-10" style="font-size: 0.875em;">
+                <a href="<?= site_url('daftar'); ?>">Don't have an account? Sign Up</a>
+            </div>
+            <div class="text-center mg-t-2" style="font-size: 0.875em;">
                 <a href="<?= admin_url('forgot'); ?>"><?= lang_line('forgot_password') ?>?</a>
             </div>
             <?= form_close(); ?>
